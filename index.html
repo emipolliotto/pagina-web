@@ -15,22 +15,22 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="#">Lingüistica</a>
+        <a class="navbar-brand fw-bold" href="#">Lingüística</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+  
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#cursos">Cursos</a>
+              <a class="nav-link active" href="#" data-section="cursos">Cursos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#inscripcion">Inscripción</a>
+              <a class="nav-link" href="#" data-section="inscripcion">Inscripción</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contacto">Contacto</a>
+              <a class="nav-link" href="#" data-section="contacto">Contacto</a>
             </li>
           </ul>
         </div>
@@ -42,6 +42,7 @@
     </nav>
   </header>
     <main>
+      <section id="cursos" class="seccion">
       <div class="container mt-4">
 
         <!-- 🎠 CARRUSEL INSTITUCIONAL -->
@@ -159,6 +160,98 @@
     
         </div>
       </div>
+    </section>
+
+    <section id="inscripcion" class="seccion d-none">
+      <h2>Formulario de Inscripción</h2>
+  <form action="/submit" method="POST">
+    <!-- Campo de Nombre -->
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre">
+    </div>
+
+    <!-- Campo de Apellido -->
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required placeholder="Ingresa tu apellido">
+    </div>
+
+    <!-- Campo de Número de Teléfono -->
+    <div class="form-group">
+      <label for="telefono">Número de Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required placeholder="Ingresa tu número de teléfono">
+    </div>
+
+    <!-- Campo de Correo Electrónico -->
+    <div class="form-group">
+      <label for="email">Correo Electrónico:</label>
+      <input type="email" id="email" name="email" required placeholder="Ingresa tu correo electrónico">
+    </div>
+
+    <!-- Selección de Modalidad (Presencial o Virtual) -->
+    <div class="form-group">
+      <label for="modalidad">Modalidad:</label>
+      <select id="modalidad" name="modalidad" required>
+        <option value="presencial">Presencial</option>
+        <option value="virtual">Virtual</option>
+      </select>
+    </div>
+
+    <!-- Botón de Envío -->
+    <div class="form-group">
+      <button type="submit">Enviar Inscripción</button>
+    </div>
+  </form>
+    </section>
+    <section id="contacto" class="seccion d-none">
+      <div class="container">
+        <h1>Sobre Nosotros</h1>
+    
+        <div class="row">
+          <div class="column">
+            <h2>Misión</h2>
+            <p>Nuestra misión es ofrecer soluciones innovadoras y accesibles en tecnología, brindando un servicio de calidad que ayude a nuestros clientes a alcanzar sus objetivos y mejorar sus negocios.</p>
+          </div>
+          
+          <div class="column">
+            <h2>Visión</h2>
+            <p>Aspiramos a ser líderes en el sector tecnológico, brindando servicios que transformen la vida de nuestros usuarios, siempre adaptándonos a los cambios del mercado y las nuevas tecnologías.</p>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="column">
+            <h2>Valores</h2>
+            <ul>
+              <li>Innovación</li>
+              <li>Compromiso</li>
+              <li>Transparencia</li>
+              <li>Trabajo en equipo</li>
+            </ul>
+          </div>
+    
+          <div class="column">
+            <h2>Equipo</h2>
+            <div class="team-member">
+              <img src="path/to/photo1.jpg" alt="Juan Pérez">
+              <h3>Juan Pérez</h3>
+              <p>CEO & Fundador</p>
+            </div>
+            <div class="team-member">
+              <img src="path/to/photo2.jpg" alt="María Gómez">
+              <h3>María Gómez</h3>
+              <p>Directora de Marketing</p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="testimonials">
+          <h2>Testimonios</h2>
+          <p>"Gracias a su equipo, nuestro proyecto creció de forma increíble. ¡Recomendados al 100%!" - Cliente Satisfecho</p>
+        </div>
+      </div>
+    </section>
     </main>
     <footer class="bg-light text-dark mt-5 py-4">
       <div class="container">
