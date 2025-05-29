@@ -96,6 +96,8 @@
   const nivelesContainer = document.getElementById('niveles-container');
   const tituloIdioma = document.getElementById('titulo-idioma');
   const volverBtn = document.getElementById('volver');
+  const heroSection = document.querySelector('.hero-cursos'); // agregá esta línea arriba con los otros selects
+
 
   verMasBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -107,6 +109,7 @@
   volverBtn.addEventListener('click', () => {
     detalleSection.classList.add('d-none');
     idiomasSection.classList.remove('d-none');
+    heroSection.classList.remove('d-none');
   });
 
   function mostrarDetalle(idioma) {
@@ -115,6 +118,8 @@
 
     // Limpiamos contenedor
     nivelesContainer.innerHTML = "";
+    heroSection.classList.add('d-none');
+
 
     // Definimos los datos extra que querés guardar
     const modalidades = ["Virtual", "Presencial"];
@@ -159,7 +164,37 @@
             };
 
             localStorage.setItem('infoCurso', JSON.stringify(infoCurso));
-            window.location.href = "inscripcion.html";
+            // window.location.href = "inscripcion.html";
+
+            // 👇 agregá este código directamente acá 👇
+            document.getElementById('detalle-idioma').classList.add('d-none');
+            const formularioDiv = document.getElementById('formulario-inscripcion');
+            const tituloInscripcion = document.getElementById('titulo-inscripcion');
+            const formulario = document.getElementById('formulario');
+            const modalidadSelect = document.getElementById('modalidad');
+            const horarioSelect = document.getElementById('horario');
+
+            formularioDiv.classList.remove('d-none');
+            tituloInscripcion.textContent = `Inscripción a ${idioma} - Nivel ${nivel}`;
+
+            modalidadSelect.innerHTML = '';
+            modalidades.forEach(m => {
+              const option = document.createElement('option');
+              option.value = m;
+              option.textContent = m;
+              modalidadSelect.appendChild(option);
+            });
+
+            horarioSelect.innerHTML = '';
+            horarios.forEach(h => {
+              const option = document.createElement('option');
+              option.value = h;
+              option.textContent = h;
+              horarioSelect.appendChild(option);
+            });
+
+            formulario.dataset.idioma = idioma;
+            formulario.dataset.nivel = nivel;
         });
         });
     }, 100);
@@ -168,3 +203,80 @@
     idiomasSection.classList.add('d-none');
     detalleSection.classList.remove('d-none');
   }
+
+// FORMULARIO
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const formularioDiv = document.getElementById('formulario-inscripcion');
+    const tituloInscripcion = document.getElementById('titulo-inscripcion');
+    const formulario = document.getElementById('formulario');
+    const modalidadSelect = document.getElementById('modalidad');
+    const horarioSelect = document.getElementById('horario');
+
+      // Mostrar el formulario al tocar "Inscribirme"
+    document.querySelectorAll('.inscribirme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idioma = btn.dataset.idioma;
+        const nivel = btn.dataset.nivel;
+        const modalidades = JSON.parse(btn.dataset.modalidades);
+        const horarios = JSON.parse(btn.dataset.horarios);
+        document.getElementById('detalle-idioma').classList.add('d-none');
+        formularioDiv.classList.remove('d-none');
+
+
+        // Título del formulario
+        tituloInscripcion.textContent = `Inscripción a ${idioma} - Nivel ${nivel}`;
+
+        // Limpiar y rellenar selects
+        // modalidadSelect.innerHTML = '';
+        // modalidades.forEach(m => {
+        //   const option = document.createElement('option');
+        //   option.value = m;
+        //   option.textContent = m;
+        //   modalidadSelect.appendChild(option);
+        // });
+
+        // horarioSelect.innerHTML = '';
+        // horarios.forEach(h => {
+        //   const option = document.createElement('option');
+        //   option.value = h;
+        //   option.textContent = h;
+        //   horarioSelect.appendChild(option);
+        // });
+
+        // Mostrar el formulario
+        // formularioDiv.classList.remove('d-none');
+
+        // Guardar datos para el submit
+        formulario.dataset.idioma = idioma;
+        formulario.dataset.nivel = nivel;
+      });
+    });
+
+    // Guardar inscripción en localStorage
+    formulario.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const inscripcion = {
+        nombre: formulario.nombre.value,
+        apellido: formulario.apellido.value,
+        telefono: formulario.telefono.value,
+        email: formulario.email.value,
+        idioma: formulario.dataset.idioma,
+        nivel: formulario.dataset.nivel,
+        modalidad: modalidadSelect.value,
+        horario: horarioSelect.value
+      };
+
+      const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
+      inscripciones.push(inscripcion);
+      localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
+
+      alert("Inscripción realizada con éxito ✨");
+
+      // Reiniciar y ocultar formulario
+      formulario.reset();
+      formularioDiv.classList.add('d-none');
+    });
+  });
+
