@@ -1,167 +1,119 @@
 header {
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* Asegura que el header quede por encima de otros elementos */
-  width: 100%; /* Asegura que el header ocupe el ancho completo */
-  background-color: #fff; /* Fondo blanco, ajusta si lo necesitas */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra para mayor visibilidad */
-}
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que el header quede por encima de otros elementos */
+    width: 100%; /* Asegura que el header ocupe el ancho completo */
+    background-color: #fff; /* Fondo blanco, ajusta si lo necesitas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra para mayor visibilidad */
+  }
 
+  .card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* recorta y ajusta sin deformar */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
 
 /* SECCION INSCRIPCION */
 h2 {
-  text-align: center;
-  margin-top: 30px ;
-  margin-bottom: 30px;
-}
+    text-align: center;
+    margin-top: 30px ;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input, select, button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
 
-form {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
-input, select, button {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-  border: none;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-
+  html {
+    scroll-behavior: smooth;
+  }
 
 /* SECCION SOBRE NOSOTROS */
 
-
-#about {
-  background-color: #f9f9f9;
-  padding: 50px 20px;
-  font-family: 'Arial', sans-serif;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-h1 {
-  text-align: center;
-  font-size: 42px;
-  color: #333;
-  margin-bottom: 40px;
-}
-
-h2 {
-  font-size: 28px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 18px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.column {
-  flex: 1;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 8px;
-}
-
-.team-member {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.team-member img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-}
-
-.team-member h3 {
-  font-size: 20px;
-  color: #333;
-}
-
-.team-member p {
-  font-size: 16px;
-  color: #777;
-}
-
-.testimonials {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.testimonials p {
-  font-style: italic;
-  color: #333;
-  font-size: 20px;
-  margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
+  .timeline {
+    list-style: none;
+    padding-left: 0;
+    position: relative;
   }
-
-  .column {
-    margin-bottom: 30px;
+  .timeline li {
+    padding: 1rem 0;
+    border-left: 4px solid #0d6efd;
+    padding-left: 1.5rem;
+    position: relative;
   }
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    left: -0.6rem;
+    width: 1rem;
+    height: 1rem;
+    background: #0d6efd;
+    border-radius: 50%;
+  }
+  
+
+  @media screen and (max-width: 600px) {
+    /* body {
+        background-color: lightblue;
+    }
+
+    #imagenCabecera {
+        display: none
+    }
+    #Cabecera{
+        color: red;
+        font-size: 20px;
+    } */
 }
 
-
-/* -------- PANTALLAS GRANDES -------- */
 @media screen and (min-width: 601px) {
-    .carousel-item img {
-        height: 400px;
-        object-fit: cover;
-      }
-}
+    /* body {
+        background-color: lightgreen;
+    }
 
-/* -------- MÓVIL -------- */
-@media screen and (max-width: 600px) {
-    
+    #imagenCabecera {
+        display: inline
+    }
+        #Cabecera{
+        color: yellow;
+        font-size: 50px;
+    } */
 }
-
