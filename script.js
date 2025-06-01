@@ -116,14 +116,10 @@
     // Cambiamos títulos
     tituloIdioma.textContent = `Niveles de ${idioma.charAt(0).toUpperCase() + idioma.slice(1)}`;
 
-    // Limpiamos contenedor
+    // Limpiamos contenedor y ocultamos herosection
     nivelesContainer.innerHTML = "";
     heroSection.classList.add('d-none');
 
-
-    // Definimos los datos extra que querés guardar
-    const modalidades = ["Virtual", "Presencial"];
-    const horarios = ["Lunes y Miércoles 10:00", "Martes y Jueves 18:00"];
 
     // Agregamos las cards de niveles
     nivelesPorIdioma[idioma].forEach(nivel => {
@@ -155,6 +151,13 @@
             const nivel = btn.dataset.nivel;
             const modalidades = JSON.parse(btn.dataset.modalidades);
             const horarios = JSON.parse(btn.dataset.horarios);
+            const formularioDiv = document.getElementById('formulario-inscripcion');
+            const tituloInscripcion = document.getElementById('titulo-inscripcion');
+            const formulario = document.getElementById('formulario');
+            const modalidadSelect = document.getElementById('modalidad');
+            const horarioSelect = document.getElementById('horario');
+            document.getElementById('detalle-idioma').classList.add('d-none');
+            
 
             const infoCurso = {
             idioma,
@@ -162,64 +165,40 @@
             modalidades,
             horarios
             };
-            console.log(infoCurso)
 
             localStorage.setItem('infoCurso', JSON.stringify(infoCurso));
 
+            // formulario
+            tituloInscripcion.textContent = `Inscripción a ${idioma} - Nivel ${nivel}`;
+
+            // Limpiar y rellenar selects
+            modalidadSelect.innerHTML = '';
+            modalidades.forEach(m => {
+              const option = document.createElement('option');
+              option.value = m;
+              option.textContent = m;
+              modalidadSelect.appendChild(option);
+            });
+  
+            horarioSelect.innerHTML = '';
+            horarios.forEach(h => {
+              const option = document.createElement('option');
+              option.value = h;
+              option.textContent = h;
+              horarioSelect.appendChild(option);
+            });
+
+            // mostrar formulario
+            formularioDiv.classList.remove('d-none');        
             
-              const formularioDiv = document.getElementById('formulario-inscripcion');
-              const tituloInscripcion = document.getElementById('titulo-inscripcion');
-              const formulario = document.getElementById('formulario');
-              const modalidadSelect = document.getElementById('modalidad');
-              const horarioSelect = document.getElementById('horario');
-        
-                // Mostrar el formulario al tocar "Inscribirme"
-              document.querySelectorAll('.inscribirme-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                  const idioma = btn.dataset.idioma;
-                  const nivel = btn.dataset.nivel;
-                  const modalidades = JSON.parse(btn.dataset.modalidades);
-                  const horarios = JSON.parse(btn.dataset.horarios);
-                  document.getElementById('detalle-idioma').classList.add('d-none');
-                  formularioDiv.classList.remove('d-none');
-        
-        
-                  // Título del formulario
-                  tituloInscripcion.textContent = `Inscripción a ${idioma} - Nivel ${nivel}`;
-        
-                  // Limpiar y rellenar selects
-                  modalidadSelect.innerHTML = '';
-                  modalidades.forEach(m => {
-                    const option = document.createElement('option');
-                    option.value = m;
-                    option.textContent = m;
-                    modalidadSelect.appendChild(option);
-                  });
-        
-                  horarioSelect.innerHTML = '';
-                  horarios.forEach(h => {
-                    const option = document.createElement('option');
-                    option.value = h;
-                    option.textContent = h;
-                    horarioSelect.appendChild(option);
-                  });
-        
-                  // Mostrar el formulario
-                  formularioDiv.classList.remove('d-none');
-        
-                  // Guardar datos para el submit
-                  formulario.dataset.idioma = idioma;
-                  formulario.dataset.nivel = nivel;
-                });
-              });
             
            });
-    }, 100);
+  }, 50);
 
     // Cambiamos la vista
     idiomasSection.classList.add('d-none');
     detalleSection.classList.remove('d-none');
-  })
+})
 } 
 
 
@@ -228,20 +207,18 @@
 const formulario = document.getElementById('formulario');
 const formularioDiv = document.getElementById('formulario-inscripcion');
 
-// Guardar datos para el submit
-formulario.addEventListener('submit', e => {
-  e.preventDefault();
+document.getElementById('enviar').addEventListener('click',function(){
 
-  const inscripcion = {
-    nombre: formulario.nombre.value,
-    apellido: formulario.apellido.value,
-    telefono: formulario.telefono.value,
-    email: formulario.email.value,
-    idioma: formulario.dataset.idioma,
-    nivel: formulario.dataset.nivel,
-    modalidad: formulario.modalidad.value,
-    horario: formulario.horario.value
-  };
+  let inscripcion = {
+    nombre : document.getElementById('nombre').value,
+    apellido : document.getElementById('apellido').value,
+    telefono : document.getElementById('telefono').value,
+    email : document.getElementById('email').value,
+    idioma : formulario.dataset.idioma,
+    nivel : formulario.dataset.nivel,
+    modalidad : document.getElementById('modalidad').value,
+    horario : document.getElementById('horario').value,
+  }
 
   // Recuperar las inscripciones guardadas y añadir la nueva
   const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
@@ -253,5 +230,4 @@ formulario.addEventListener('submit', e => {
   // Reiniciar y ocultar formulario
   formulario.reset();
   formularioDiv.classList.add('d-none');
-});
-
+})
