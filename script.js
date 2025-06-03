@@ -87,6 +87,72 @@
         modalidades: ["Virtual", "Presencial"],
         horarios: ["Martes y Viernes 18:00", "Sábado 9:00"]
       }
+    ],
+    portugues: [
+      {
+        nombre: "A1",
+        modalidades: ["Virtual", "Presencial"],
+        horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
+      },
+      {
+        nombre: "A2",
+        modalidades: ["Virtual", "Presencial"],
+        horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
+      },
+      {
+        nombre: "B1",
+        modalidades: ["Virtual"],
+        horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
+      },
+      {
+        nombre: "B2",
+        modalidades: ["Virtual", 'Presencial'],
+        horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
+      }
+    ],
+    japones: [
+      {
+        nombre: "A1",
+        modalidades: ["Virtual", "Presencial"],
+        horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
+      },
+      {
+        nombre: "A2",
+        modalidades: ["Virtual", "Presencial"],
+        horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
+      },
+      {
+        nombre: "B1",
+        modalidades: ["Virtual"],
+        horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
+      },
+      {
+        nombre: "B2",
+        modalidades: ["Virtual", 'Presencial'],
+        horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
+      }
+    ],
+    chino: [
+      {
+        nombre: "A1",
+        modalidades: ["Virtual", "Presencial"],
+        horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
+      },
+      {
+        nombre: "A2",
+        modalidades: ["Virtual", "Presencial"],
+        horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
+      },
+      {
+        nombre: "B1",
+        modalidades: ["Virtual"],
+        horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
+      },
+      {
+        nombre: "B2",
+        modalidades: ["Virtual", 'Presencial'],
+        horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
+      }
     ]
   };
 
@@ -208,14 +274,15 @@ const formulario = document.getElementById('formulario');
 const formularioDiv = document.getElementById('formulario-inscripcion');
 
 document.getElementById('enviar').addEventListener('click',function(){
+  const infoCursoGuardado = JSON.parse(localStorage.getItem('infoCurso'));
 
   let inscripcion = {
     nombre : document.getElementById('nombre').value,
     apellido : document.getElementById('apellido').value,
     telefono : document.getElementById('telefono').value,
     email : document.getElementById('email').value,
-    idioma : formulario.dataset.idioma,
-    nivel : formulario.dataset.nivel,
+    idioma : infoCursoGuardado?.idioma,
+    nivel : infoCursoGuardado?.nivel,
     modalidad : document.getElementById('modalidad').value,
     horario : document.getElementById('horario').value,
   }
@@ -230,4 +297,7 @@ document.getElementById('enviar').addEventListener('click',function(){
   // Reiniciar y ocultar formulario
   formulario.reset();
   formularioDiv.classList.add('d-none');
+  idiomasSection.classList.remove('d-none');
+  heroSection.classList.remove('d-none');
+  window.location.href = "inscripcion.html";
 })

@@ -1,44 +1,16 @@
-let inscripciones = [];
-
-
-// window.addEventListener('DOMContentLoaded', () => {
-//     const infoJSON = localStorage.getItem('infoCurso');
-//     if (!infoJSON) return;
-
-//     const info = JSON.parse(infoJSON);
-
-//     // Mostrar idioma y nivel
-//     const aca = document.getElementById('aca')
-//     const titulo = document.createElement('h3');
-//     titulo.textContent = `Inscripción a ${info.idioma} - ${info.nivel}`;
-//     aca.append(titulo); // o insertalo donde prefieras
-
-//     // Modalidad
-//     const modalidadSelect = document.getElementById('modalidad');
-//     info.modalidades.forEach(m => {
-//       const option = document.createElement('option');
-//       option.value = m;
-//       option.textContent = m;
-//       modalidadSelect.appendChild(option);
-//     });
-
-//     // Horario
-//     const horarioSelect = document.getElementById('horario');
-//     info.horarios.forEach(h => {
-//       const option = document.createElement('option');
-//       option.value = h;
-//       option.textContent = h;
-//       horarioSelect.appendChild(option);
-//     });
-//   });
+let inscripciones = []
 
 // Obtener el contenedor de las inscripciones
 const misInscripcionesDiv = document.getElementById('mis-inscripciones');
+const aca = document.getElementById('aca')
 
 // Función para mostrar las inscripciones en la página
 function mostrarInscripciones() {
   const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
   misInscripcionesDiv.innerHTML = ''; // Limpiar cualquier contenido previo
+  let texto = document.createElement('h2')
+  texto.textContent = 'Mis Inscripciones'
+  aca.appendChild(texto)
 
   inscripciones.forEach((inscripcion, index) => {
     // Crear la card de la inscripción

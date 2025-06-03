@@ -36,16 +36,17 @@
           </div>
           <!-- CAMBIAR ESTO -->
           <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-            <img src="ee74eea0-a591-443a-bfe7-84c3717b931f.jpg" alt="Logo" width="40" height="40" class="me-2">
+            <img src="" alt="Logo" width="40" height="50" class="me-2">
           </a>
         </nav>
       </header>
       <main>
-        <section class="hero-cursos position-relative text-white text-center" style="background-image: url('https://images.unsplash.com/photo-1581091012184-7e0cdfbb6795?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; height: 60vh;">
+        <section class="hero-cursos position-relative text-white text-center" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4oe7mjv50DoCs6-7DM3B7wRm0FhY4GuHBNJ3VAJCCmcOfNaV3mdM4Ne68iecyduuuG7E&usqp=CA'); background-size: cover; background-position: center; height: 60vh;">
           <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.6);"></div>
           <div class="position-relative d-flex flex-column justify-content-center align-items-center h-100">
             <h1 class="display-4 fw-bold">Aprendé el idioma que siempre soñaste</h1>
-            <p class="lead">Inglés, alemán, francés o italiano. Con clases personalizadas y docentes expertos.</p>
+            <p class="lead">Más de 10 idiomas disponibles. Clases personalizadas con docentes expertos.
+            </p>
             <a href="#idiomas" class="btn btn-light mt-3">Ver todos los cursos</a>
           </div>
         </section>
@@ -53,9 +54,9 @@
         <!-- 🃏 CARDS DE CURSOS -->
          <section id="idiomas">
             <h2 class="text-center mb-4">Nuestros Idiomas</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="cards-container">
                 <!-- Inglés -->
-                <div class="col-md-4">
+                <div class="col-md-4" id="card">
                     <div class="card shadow-sm">
                     <img src="https://flagcdn.com/w640/gb.png" class="card-img-top" alt="Curso de Inglés">
                 
@@ -71,7 +72,7 @@
 
 
             <!-- Aleman -->
-                <div class="col-md-4">
+                <div class="col-md-4" id="card">
                     <div class="card shadow-sm">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2560px-Flag_of_Germany.svg.png" class="card-img-top" alt="Curso de Aleman">
                 
@@ -86,7 +87,7 @@
                 </div>
         
             <!-- Francés -->
-                <div class="col-md-4">
+                <div class="col-md-4" id="card">
                     <div class="card shadow-sm">
                     <img src="https://flagcdn.com/w640/fr.png" class="card-img-top" alt="Curso de Frances">
                 
@@ -101,7 +102,7 @@
                 </div>
         
             <!-- Italiano -->
-                <div class="col-md-4">
+                <div class="col-md-4" id="card">
                     <div class="card shadow-sm ">
                     <img src="https://flagcdn.com/w640/it.png" class="card-img-top" alt="Curso de Italiano">
                 
@@ -114,6 +115,52 @@
                 
                     </div>
                 </div>
+
+              
+            <!-- Portugues -->
+                <div class="col-md-4" id="card">
+                    <div class="card shadow-sm">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQwAAAC8CAMAAAC672BgAAABaFBMVEUAlED/ywAwJoEAk0H/zQD///8AkkIuJID/zwAsIX8AkUIpHn4AlT4mHoT8ywAsIn8oHH72xAAmGn0AlzpgpDHtyAAzKYN5YGEhFHvmxQ0jmjl8qypjT2f/0wBUoTQeF4ZDNXg8M4hrVWVeS203LH3svA/0wgzesSPnuBxfS3J2caaZ0rAgEXtJozDRvxVZpS2dtCCvuRc6nDjbxAWLrii5uhtepyqbsCbEvBhspy2otSC2vBJ/rCjXqx3CmzGyjUSkglSSdFxJOnNXRXSGa067lUCCaFkjnDZqYqM/MnvE5tPq+PBNRZLHwdrV7d4+nzPPpSvV0+alhFBXT5eLhbecmL/v7vaYeVRJOm1fVZ0YA3mPd3C0ss/h2+zO2d7S2uLfukRMr3FatXt+x5tquofYyK+U0a694cswnlX/9udyaqjav3+WkL7t3r/a8uO9xdXevW2z0cm3lmDf6evnxGrw16C4rK7swjdIHFozAAAOZUlEQVR4nO1d61/a2BYNJiHEiIlQYrDaGmvVAWp9V221Yx+WQqBFSCxeaAfCBYdx6Mztffz795yAFjQJSUAJeNYHq7+2Jlnss/faj3OCYQgICAgICAgICAgICAgICAgICAgICAgIA4A3GPQO+h5cAtz7bHX1uRcf9H24Ad7gWoggQvvIODAcf75JeACIzQf4/TYOHNvYJzQuABvE+gZ2j+nAg3ubLSqaxrE3c1/XCo49WiPauNCM49HEvTQO78zWZgcVGh3hrXtoHDj2YHvyBheAjcndB/fNc+Aza+GbTLSMY+1+Gcf4s1U9s7g0js2d8UHf4Z3Bi68ZU9GkYx27H8aB489CplRodIR27oHnADJrnejKhRZlP416lMVnHt6MpwZ0hF/NjDIbOP5IN54asDG5PcJR1ht8YdUsLo3jxYhGWZCf7lo3ixYbxO7eKOay3uBa2CYVGh2h/ZEzDhzfMZFZppjcHDHjwINrHmdUQOPwrI9QWMEndrrLLFM6QnsjojmgzPL1xAVgw/dyYxToADLL1HESbTD7Z+FXG8POBj6hX7Zo8eDz+aaePl1ZBlh5uuQBPxoyAgsdw20csGxh8HSAiKmDw9e/Hh1PLyzMzi4sTB8f/fr68GDKZ7SmiPDaEBsH7n1uEE8JH7Hy/nT6yZtFzu/3cwyA9s3imyfTp+9XCH0+iMnVvWHtNXmD6/pBxDc39X767fyYn6GpsQ5QNOMfm387/X5qzqdLR2h7KHtN+PjzsJ62IHxzB+/mF2mavUbEFSEsTS/OvzuY0zeP8M740BkHPvNSlwrCc7DA+a9bxA1CaL9/9rNHz5sSxPaH4VKkeFA/nhJTnxcEfxcmWnz4/Qufp3TpCA1ToQPHHulWswhi+ZS2RkWTDub0QN+8toem1+Sd2dI1C9/T918eW6ZCo+Px/Punep6UCL/4MAyOFHaHdM3Cd3DMMHaogGCY4wN9I9sdgnTFayCzCM/hLGPLLFrGwTx5P6X7C8P7G+42Dhzb05dZxNLJfLcQYsAGPX+ypPsrJ1cfutk4vDP7Uzq3DaPIKU87oQKC5o912fB4Jl+6tgqGe3dCuvcMuJjmWKdcjI2x/gXdlaL1mlwpwXBs5qVBikUsvbUXRW7g8VsD2/D4dmfc107AZx4aVbN8S7P+nqgA8D9Z0k1W3CjBYNnCqMjpe3rcMxeAjWlDNjzuKnTgGy8Mq1nE0juqtzWigaLeGa0UYBzuKXSAeGrcHSKmThZ78J0/wS6eGHjRZpR1h+fwBrdNipzE4RvHMbUT9JtDk8uEtj8MfsAFx3c2TVoivuVZ2xLcCMzssoHbgGwQmw8HndmPB03b6sBhWM9Su4HijN2GR2vaD9Q48AnDeNrCYf+4AGwIh6YXA1F2YGEFxx69NB/CIVa+9G2RQDBfVsyvR+wOqNCBz7zq2jQ8fdxPLoASPe3SsiVCWwOIskBmvTR2Z034Dpwk7WaguINuFyXuXoKZyawrzE1r0pOC9W6a0QC+YdkeRJh/eq7bVYnQi093yQZwnBamLYiVWECInZ0FeDGbzcc15PNZSaRjZ7FYgDNsFpiZht/ca2jX9dxlocP7waA71AnfP/I5uZDKFCG+fv2qKAr4+u1bsZjJpORcPSvGzgTOpiTzH3c1DWgc63dUIsW9e2ErQzjEb4qSTpJktFQqJ5NqqaSSZKlcVpPJCvgxqUCk5LoEGLHhWtiPy1auPRl+dReNSG9w1+IQzj/J0nkpQaoJslJNqjWy0iDxRCJJJry16jlgiSS1L0pGzguAEPqnKzFZP9TYqQXT0NZK8NYl2MSe1dGspd8TJTKtktVSCWtoZKTJiUqlRtZK6nkJ0kBWznFV+4bMABMRKUZL6ShG4o3ZYH4xzNeu03G7EgyfeLRrdQaH+INMl8gaIKOaLCeSajVaTpLedLpBRqveSpOMUrWmGQepquCb1EVdGguwFJ9NRYzZYOcPu0XXq1u4TQmGb+h3h3Qx9Sf45FVoCAkyAb6qagM+tFpN1tKVRqVFRrVJxnlUBVQ10t/liMSIKTIjGaf97JH1GePQi1uSYPjE3q6VEfjWffzvd+ATagml+A3Ejg5kMt+LfyvQZQBz0chIn0ej5Ua6UlEbwKdGcoW6idfgZrtH16u7IHZvJcqOf9i3M7JH/JVJFQryRaQeB8pijGYEIDliQoCmREnKxyMg6BZS3/9uLpOqWosmyGilVgEWk/yakvMxzpAM+ovldeLRhmo/9TvK4tjDVetmAeD7VxyoK0EIcAzUnGPNTxoEDE2PMlxA4HgpH7mQCxmFTCQ1O6lUSmA9AR+rFFN1IWA0v8Gf2CADGMdqnx2p98O2vUlOYuooBhQmRYui0eqHrHABSszGc3IKrhU1XSuRyUqipiZhwI34BX06/EcW48nlvYS2+2gcwCyMdtcZ3sDKAjR0XrrI8YYGr1HC0gwN9HqkALxIQiWTZTJdSZLqeZQs5hhdOrgF606jhXC/jAPHN7qULXTg+/wW6GxKlMli3ILgBowwdFYGfCTLlXIURB2yXAPmkaNujH0Bp/H2s511AgEc6ad+FAXxiVcOJuB9hx/hQzD1zIVoTWuDJSWcSbLyA7hS8jzZSKeBR20oOZG+Tib70Y4HvaRjcqvnXhOUWfavDMh43QwHfIwyXybXPvSYP5IC9qFW1fN0uqKWomQmJzHX3A7z2tEtrfYowYDMcjgCf9KsccHoYYMM8B8CQlbO/KhWVJDh1aLAo6a/R8TOTO7xiaNbgr0m590VILNWne2MIJZOHbcUqUBMzKV+JBtqDYbaaLn6dyEeaF8r/lN74eTqrjyrD4MO2cA/2ZJZHZftob/Kx/OswEcK32AWQya9alRtFGU+0EbGkVnLwPS+QuuOqmA4/mrT4d6hnsig4xmZp6gAX5cVIMYqUbUKNVmxfnblOfzHTx3f2GR4y/5SGQ/a3l3Xfs2VaadksFIkD/+kGD4PYi2mNrQCkaoUrozDP21baLTTsWq31zTRvQ1gTsaCcXIBVIWpU710uRQ9JhWA/AKCowISOaBYYk3jcKC6OunYmnAPGVLWpHjTQQt9JhWTQHDUzhOwCiSLGo13TcYtLhNWyih5y2VgRsgVyWo0igOxXm2k4jDI3vUyuU0HGksVDVIwXesQpAKQHRWQwpXLCSDQ6bt3oNjthVZKkixTAUFzkQxworWoGo2CpSIF7j60Yrcnuli7ozwCyFmSIMjC3D6Zip8NQHRhfZDj1kBRXZprdCCSacBMJa2q0WJ9EHIc6z1Ra3teEy7ESKRbbstlC8l0kiwn0uVG8Q8nXPScqGE9pvA/wfPGkxqsqCiGBbEr4+BzCpkuk2Q5rfxln4p+pPBYT8Wdy4elxrhcMWLMBifLJrKkBYqTMmRJLVfIH/+2TUWfijtYL2U/DUyeoijaqJ/KQtIEASqsbtk+wxSSVaBHf/9tYGU/CCcF4atwImVyEjtm9KDZfNNdUHw2ku1iHGzsAvZb/tTfumB4L30tCGNOWgUnl5KbyZFk1khxUrycacpRSiyQF91kOhWrF0nyP7ao6HurALPdRPI1h2EpKL9lOWb4eHRdzjZ9ZyCXsqDShXjGlv+8jSYSZru9uDILnAYLPmpKDFyVQXV8KHAVgZZpiMbl0p+xhsn+938Dby9iNhvPxBFNiXFZhM20S+MX6mc6bIiFeHMUwVB5UVyWuTQainZD4xmzN5LgO5ynxYzS7i24nFK4+eFT4kXWXGRQfD4VyQMfHGCBVnXJSAKE5WEVYuoXjr+ItD8nK5GyoPOwXZsJXIQkRZaiZaVO2xpWuU0mICyPMc2dgo+yY2saJZ7phouu+TwdL6TOoIvNZBk3jTHZGHBb/njN+mlnmzkBeCEGdz9yMdpdA26Y5dHHuWs1DSprNJ3Ex+NdlgorXdRF+I3LRh8x60OxnVsKOFnRJ4PNZzJ5cx/KxMkMVKruG4rF7I1LX5ERMRBfdFZRDDVqE9RYQfO9LhyXxpwN0rOtZvQNPcHnzKc4aJD/i5phBNw4SI8532IhxPPXJ5R4jtEno/nvWKkQETUGH//qyi0WmNPNN3SkqMjGpQ26jShK0GQ4y0pKUePFvZtvMGfbsighY5zEAiPINRcRTQPhXVDyNMWLjBTPwVqHm7dlQdjfsEdJoiQaGgabU+rQbNhsnR0LXKREWiwApcVAe3H5hj3MyVZOijUrhYuSBJ+bSRWBw+RiLMVH5Fax2PVbObF+b/KlmjOjdCTCAFMQadhgbP7NEGzyxbpt//bY3v6tjT4xHEhW64XIFZPs4omhBbpn+zfW54MBKDEX15wKyFLJ3OUiG5aDAbAuR0Ys2ZviYaVMsZn4M/WflQ6/0VEzrjsyAuvnYSIgusrNHRYUT18mM8N0mAjW12Nm+Es5SgstwxiyY2awng4g6vQqVz9ITRNh/dNDdgARhNOjqShRt+8syNqID80b+U4XH02FOT60jI7rTttTosRTQ3toGebwODsDMqACG+Lj7DCHBx3e2DlwieE+6BBDR2B2om+Ho3Lvhv5wVKyfx+bq/RI3yixT9H6g8sKoHKiMmR61vfxufpHtdtT28ggdtY2ZHMJOzHkOux7Crv8/h/QQdsza8fxM+/H8zOgez4+hFzd0ovsrPTxL9+WVHhh62Usn0GuAOoBeENUB9OqwduD4A/RSuZ9ArxtsB3oRZQfQK0rbgV5e2wH0WuN2oBdedwC9Cr0DXnzN3HMQk+vYyDrOGxh/ZiLBiMnNHVcMntwVYKHDiIvw2ujGU33AXpOeccCyxT3xFu3wzmzdjLJEeOu+mUUTOPZorTPKgng6TN2h/gIP7rUbB7G5dz/NogkgwfYvjQOYRW+HGAw/QC7bNA5i88GI5qd24A2uhQgitD+s3aH+Avc+W119PsTdof7CG0RmgYCAgICAgICAgICAgICAgICAgICAgDAY/B8RRl+KD1XAPAAAAABJRU5ErkJggg==" class="card-img-top" alt="Curso de Aleman">
+          
+                    <div class="card-body" id="cardPrincipal">
+                        <h5 class="card-title">Portugues</h5>
+                        <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
+                        <button class="ver-mas btn btn-primary" data-idioma="portugues">Ver más</button>
+
+                    </div>
+          
+                    </div>
+                </div>
+
+                <!-- Japones -->
+                <div class="col-md-4" id="card">
+                  <div class="card shadow-sm">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAh1BMVEX///+8AC27ACm4AA+5ABi7ACe4ABW6ACS4ABK7ACi6ACC6ACK6AB65ABr99fe3AAu3AAD35OfFOFDOYXLoucDjqrPqwMf13uLCLEfScH/blJ7msrvKUWXz2t7z1dvwzNPWf43JS1+/Ezfai5f78PLho63GQFfVfInNWm2/DTXBJEHRbn3sxszHSQTJAAAEQ0lEQVR4nO3diXLaMBAG4NryIXxigg8IYHAIuXj/5yuUpiWxGZDRMev83wNkvDuKtJYW+dcvAAAAAAAAAAAAAAAAAAAAAAAAADhKylW9L4piX6/KxPTDGJes8vXiPU0Z557ncc7S9H2xzlc/NjP1085nTuDa1jnbDRzm7+Yr04+nX/Hg8Mi1LrDdiIez6U8aLsuXmIeX8vEvL6HHZ0vTj6pJsUmDawn5K0g3henH1aCo2MV/mQ4uq4aelbpiI4GMHI1YVZt+bIWy17FoRv5kZfyamX50VebO1Yn1gtCZm354JbLK65mRI68a4FDJU5Gptc1Nc9MhyDZL78rIUTozHYRUySS+OyWWFU8GVNhmli8hJdbhrwxmUlnGfVbgLqNoIMX+0rOvR3sj2xtEUspYXkoOSYlL0wHdL4tkpuSQlID8nJI095UlbW5DffWZ9C3nLwsnpoO6z4eMuuS7mHTxlt9fvXahXOaXXElKLIvTXXwq2fPrJ7cyHVpfT46ilFiW82Q6uH5KNZPJSUqzStnIefHr5m9Mh9fHVOUwOQwUitv5b3Jr+u/sxnSA4vJ7dl9v4dErUtSOkiPbdIiilA8TggPlXcM4eTcdpJg9U56SQ4W/Nx2mkAeVtckn/8F0mCK26qr6c/HWdKACnvXkxKE0y25UvRB/5RIq8BO1Zf1/Yzpbs1P1xcmJNzUd6s1m8jemu4V0dmZt9QXbiU2mvs90FGwnjMrWkrbphNCEMo+05SSi0uempbA/IVPeV7LaTa4bETnUSCxdy85h4bFoVG2ZqtO/LpzGwrPUtxQfFmMafUu11nFCoxdfY3lyKFBoHPM86tk8OXEeTYd7k1xFH87FnNDYVtKakxg5oZoTzCdtetcdGi/Ge631CY1zr5XWOpbG79XxvtOG9+IOlcacENk/wT5bB+zHtmHfvg3nOx1G2iZZMueAOC/ugL6Cti36T9oWmvqUFqYDFZCjn61FU9+jQ6nvEf2xHbT0UTMa+0n/oN++Db/L6OCrHii2bzpEYc/Kf+f1bDpEcYp3IO030wH2MFW79DA6rzpndioLfHdnOrxe1P4OnegtDrivoAPutWhTdiJI5PSvE+7J6YD7lDrg3q225E36/WxvhDZhu0m/xy8iPL9+knzfY0S0WPtqKTEptkOjv/6qMpQ1p7jhIEbJUdbIWX3CZgBzyadkJ+PVx9mRX3G+eJFwb/mL6SBkexT6dEiby2h0TAvJJnd9B2EyoKnkzNzrezroe1T61oRli3GfUsUeL4Y5SE72DRfNis0bYmegwh4bLvSdJt4McG5tme7S4MbBEqQ7kkcWPSzXwfXvvlmhF78M5O3mNsVHzKPL9xqMAh5//JQhcqZ+mkTMCb4dttt+4LBwsh76vHrRts7Xr5UzTtmf742ydOxUrz/5e6P/bctVXRRFvSpJNagBAAAAAAAAAAAAAAAAAAAAAAAAqPQbnZ1LfskQUQkAAAAASUVORK5CYII=" class="card-img-top" alt="Curso de Aleman">
+        
+                  <div class="card-body" id="cardPrincipal">
+                      <h5 class="card-title">Japones</h5>
+                      <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
+                      <button class="ver-mas btn btn-primary" data-idioma="japones">Ver más</button>
+
+                  </div>
+        
+                  </div>
+                </div>
+
+                <!-- Chino -->
+                <div class="col-md-4" id="card">
+                  <div class="card shadow-sm">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAjVBMVEXuHCX//wDtACb71w/uEyXuDSb//ADtACXvMCPyYB/yZh7+9AT5xBHzexz4shX++APzcx384wr97AfwSSH96Aj82wz1lBn5vxL5uhP+8AXuJCTxWyDvOSLzbx73qxbxTyD3phf2mhj0ghv6zBDwQSL1jRr2oBf83wz1kBr70Q76yBD0fRz0hhvxXR/wTiKT7hEQAAAEoklEQVR4nO3ce3eaMBgGcPOaCN4Fr6DVdlqta7vv//GWiAhWqgmrE8Lz+2dnZ7OHPLmSpNZqAAAAAFBx4tEPUDzUnfNHP0NRHJuHGDIXmUTCiUMyCx422KMfpTCox3ouCcdnfXr0sxQGtRnbz8eM+cgkJgYsUkcmJ1SPMvEWZPt0rD2JcJfFLeWJrG4rfKj7P6nJTtpb954P9WA0beq1FLkwOQk6k5XFixTq97T6AQ/7x0CmA5eILI6Er1hbKxMnYKyx3slMVjbnodBSFlKjjKLTeR0SqWF2Y3kkNZLVv9RpKFF3oWfGbI+Eq4HTZGEqV7NWT8O1qN4ZG+pXvRhY/7pDI5XJs0lD0eppJcY3h9l1ZFLMs3W9hWMLbaMlxyJn2cKNfW8+5EWZbHP2B/IX8fabLS2GL45LUy9vJuOGq0IR1GpZEgq9xC8wOTsPzVg7FIKaY2tm6LjrMPaSr0gq1DZvyRX/L0sySTZE2C5fkcST/GzDcNlXaDRJ3v7znU9QnOrAlvmHdkkmkxwVTdQdRZ8el7OZ0KVaEoks1aXrdS/o3T91PaeUs850V//KS2XC9pf//HotFPHRT30672T+WHLaNHRjKuHD7vM6+MdB+sHoySgRz71VSi5k/1LDdBCUN5RwrB/JUm+D8XAQtiDefJsunXsX4B54/Mp3U/9Ts9bVi/WU1IBb2hMfmrd1Itlz7eWGYCws5ZyTEM7v25G8Ge1F6h2FFBr9upGIPzQpJNXDuz3q/0OL0bVIZmYH5NyOkw1Ove8jGZj2BCsiqamlSiM7kd3NRYm9qFbPimRr+6nnVdTKiKRR3UaiUCdzMLFlFyQXyhxOOlVuKCL7fbDSnYem2fPOU4U7D30zF09zNBRLYhRZs07OziNM3o4K7GzP7WWd+kvLuNbJb1rRUlJdp72i9JHGzLjSw1wdrnBEctH1tyMrmYanbVXjCzfinbFSbrB9kXSd4za0SOYh046gFn/vFnQeOm62jRanVkHxLxjo7xDx6BCoz9he/uHwsMw3q/k8Ln7qjY/c6LRH77Ks+imt3rI36+zVh3x11OOVOZNo+6TROi89j677aV2WjX5Mamg2amBFpK7Esnrtogz0qapb/wofuamzkW6pI+Erpo7MM5qDELInBPqF4/R2TMTflDoSdZs8+G4bml4NOk8t2fA2uUxaRNTvON9OnrQxOpuIt2G0R+Zi4sPXawXgtDVYbaiZuD/O9U5QKLfO+AyqXM3qXqgutVV6N+qMnL5ncrBWJ0Y2rO9/BI0+Du1Drm2u3t+pknAedxmy4YT0Z1T5OOgMgrhA5vtOtqMXg9W/5Tbh4RIGtcp6Qfge2tNPIuGqLaRHP0pRqE3cYOv6jK2RSey0i4t1fMI5Xibfraz+tgIjyRGIv3WRygEPU9uvnuY3hFiOTr+awtZvdlx3/FcUnyt35nZ//Ym+w139wCv9Fv0PEl22nyzIaVT74s4Z/umoDqPOUO24W/ETjgOIHFXwtaBfcfYHmXxBHwbfIFMVGE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg3F+wcCje0ZN8WQAAAABJRU5ErkJggg==" class="card-img-top" alt="Curso de Aleman">
+        
+                  <div class="card-body" id="cardPrincipal">
+                      <h5 class="card-title">Chino</h5>
+                      <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
+                      <button class="ver-mas btn btn-primary" data-idioma="chino">Ver más</button>
+
+                  </div>
+        
+                  </div>
+              </div>
             </div>
         </section>
         <!--  Sección de detalle (oculta al principio) -->
