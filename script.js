@@ -182,8 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('enviar').textContent = 'Guardar Cambios';
 
       // Limpiar los elementos temporales de localStorage para evitar recargas automáticas en edición
-      localStorage.removeItem('inscripcionEnEdicion');
-      localStorage.removeItem('indiceInscripcionEnEdicion');
+      // localStorage.removeItem('inscripcionEnEdicion');
+      // localStorage.removeItem('indiceInscripcionEnEdicion');
   }
 });
 

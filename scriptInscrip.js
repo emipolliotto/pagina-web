@@ -55,7 +55,7 @@ function editarInscripcion(index) {
   const inscripcion = inscripciones[index];
 
   // 1. Guardar la inscripción que se va a editar en localStorage con una clave temporal
-  localStorage.setItem('inscripcion', JSON.stringify(inscripcionAEditar));
+  localStorage.setItem('inscripcionEnEdicion', JSON.stringify(inscripcionSeleccionada));
   localStorage.setItem('indiceInscripcionEnEdicion', index); // También guarda el índice para saber cuál actualizar
 
   // 2. Redirigir a la página del formulario
