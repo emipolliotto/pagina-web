@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Linguistica</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
           <div class="container-fluid">
+            <!-- CAMBIAR ESTO -->
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+              <img src="" alt="Logo" width="40" height="50" class="me-2">
+            </a>
             <a class="navbar-brand fw-bold" href="#">Lingüística</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+            
       
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -26,18 +31,14 @@
                   <a class="nav-link active" href="index.html" data-section="cursos">Cursos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="inscripcion.html" data-section="inscripcion">Inscripción</a>
+                  <a class="nav-link" href="inscripcion.html" data-section="inscripcion">Inscripciones</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="sobreNosotros.html" data-section="sobreNosotros">Sobre Nosotros</a>
+                  <a class="nav-link" href="#sobreNosotros" data-section="sobreNosotros">Sobre Nosotros</a>
                 </li>
               </ul>
             </div>
           </div>
-          <!-- CAMBIAR ESTO -->
-          <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-            <img src="" alt="Logo" width="40" height="50" class="me-2">
-          </a>
         </nav>
       </header>
       <main>
@@ -47,9 +48,89 @@
             <h1 class="display-4 fw-bold">Aprendé el idioma que siempre soñaste</h1>
             <p class="lead">Más de 10 idiomas disponibles. Clases personalizadas con docentes expertos.
             </p>
+            <div class="botonesHero">
             <a href="#idiomas" class="btn btn-light mt-3">Ver todos los cursos</a>
+            <a href="#nuestrHistoria" class="btn btn-light mt-3">Conoce nuestra historia</a>
+          </div>
           </div>
         </section>
+
+        <!-- Línea de tiempo / Trayectoria -->
+        <section id="nuestraHistoria" class="bg-light py-5">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-7 about-text-content mb-4 mb-lg-0">
+                <p class="text-uppercase about-eyebrow">NUESTRA HISTORIA</p>
+                <h2 class="about-heading">Aprendé idiomas. Conectá con el mundo.</h2>
+                <p class="about-description">
+                  Nacimos con una misión clara: hacer que aprender idiomas sea accesible, dinámico y conectado con el mundo real.
+                  En nuestra plataforma, combinamos tecnología, comunidad y pasión por los idiomas para que cada estudiante avance a su ritmo, desde cualquier lugar.
+                  Creemos que hablar otro idioma no solo abre puertas, también une culturas y transforma vidas.
+                  Sumate a esta experiencia y descubrí todo lo que sos capaz de comunicar.
+                </p>
+                <a href="#formulario" class="btn btn-about-us">INSCRIBITE</a>
+              </div>
+              <div class="col-lg-5 about-image-wrapper">
+                <img src="http://placehold.co/500" alt="Tennis player in action inscribete" class="img-fluid about-image-new">
+              </div>
+            </div><br>
+          </div>
+          <div class="container">
+            <h2 class="text-center mb-5">Nuestra Trayectoria</h2>
+            <ul class="timeline">
+              <li><strong>2013:</strong> Fundación de la academia con 2 aulas y 3 idiomas.</li>
+              <li><strong>2016:</strong> Ampliamos a 6 idiomas y sumamos modalidad virtual.</li>
+              <li><strong>2019:</strong> Alianzas con institutos internacionales y certificados oficiales.</li>
+              <li><strong>2023:</strong> Más de 3.000 estudiantes egresados. Lanzamos nuestra propia plataforma educativa.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Sección Profesores-->
+        <section id="sobreNosotros" >
+          <div class="container">
+            <h2 class="text-center mb-5">Nuestro Equipo</h2>
+            <div class="row text-center"> 
+              <!-- Profesor 1 -->
+              <div class="col-md-4 mb-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREnX6K2fyedkNj9xvJ3oaMzeeQguzzPzckEQ&s" class="rounded-circle mb-3" alt="Profesora alemana" width="160">
+                <h5>Mateo Soria</h5>
+                <p>Profesor de Alemán que hace del aprendizaje una aventura. Clases dinámicas y enfocadas en conversación.</p>
+              </div>
+              <!-- Profesor 2 -->
+              <div class="col-md-4 mb-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRASJTnIyfR5VD9wpXwLayDky0KzICTmrp8fw&s" class="rounded-circle mb-3" alt="Profesor francés" width="160">
+                <h5>Valentina Medina</h5> 
+                <p>Especialista en Italiano oral. Apasionado por la cultura y el cine italiano.</p>
+              </div>
+              <!-- Profesor 3 -->
+              <div class="col-md-4 mb-4">
+                <img src="https://www.trecebits.com/wp-content/uploads/2019/02/Persona-1-445x445.jpg.webp" class="rounded-circle mb-3" alt="Profesora italiana" width="160">
+                <h5>Lia Conti</h5>
+                <p>Con experiencia en educación intercultural, te enseña ingles con juegos, canciones y arte.</p>
+              </div>
+              <!-- Profesor 4 -->
+              <!-- <div class="col-md-4 mb-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVvDu-2IGfEX-GhajQtW3l20y3XUvIwhgZ9A&s" class="rounded-circle mb-3" alt="Profesora italiana" width="160">
+                <h5>Tomás Villalba</h5>
+                <p>Profe de Inglés para el mundo laboral. Simulaciones de entrevistas, emails y reuniones.</p>
+              </div> -->
+              <!-- Profesor 5 -->
+              <!-- <div class="col-md-4 mb-4">
+                <img src="https://content20.lecturas.com/medio/2024/12/13/wob_f8349249_241213085211_736x1104.webp" class="rounded-circle mb-3" alt="Profesora italiana" width="160">
+                <h5>Camila Benítez</h5>
+                <p>Traductora y profesora de Francés. Clases con énfasis en la vida cotidiana y la pronunciación real</p>
+              </div> -->
+              <!-- Profesor 6 -->
+              <!-- <div class="col-md-4 mb-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYZJxsSOz9hBiswsfW3OpHFqkxHRK3s9Kwfg&s" class="rounded-circle mb-3" alt="Profesora italiana" width="160">
+                <h5>Nicolás Herrera</h5>
+                <p>Docente de Alemán con formación en lingüística. Clases personalizadas y prácticas desde el día uno.</p>
+              </div> -->
+            </div>
+          </div>
+        </section>
+  
         
         <!-- 🃏 CARDS DE CURSOS -->
          <section id="idiomas">
@@ -63,14 +144,39 @@
                     <div class="card-body" id="cardPrincipal">
                         <h5 class="card-title">Inglés</h5>
                         <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
-                        <button class="ver-mas btn btn-primary" data-idioma="ingles">Ver más</button>
-
+                        <!-- <button class="ver-mas btn btn-primary" data-idioma="ingles">Ver más</button> -->
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#infoIngles">
+                          Ver niveles
+                        </button>
+                        <div class="collapse mt-3" id="infoIngles">
+                          <strong>A1</strong>
+                          <ul>
+                            <li>Horario: Lunes y Miércoles 18:00</li>
+                            <li>Profesora: Laura Gómez</li>
+                          </ul>
+                          <strong>A2</strong>
+                          <ul>
+                            <li>Horario: Martes y Jueves 19:30</li>
+                            <li>Profesor: Diego Torres</li>
+                          </ul>
+                          <strong>B1</strong>
+                          <ul>
+                            <li>Horario: Martes y Jueves 19:30</li>
+                            <li>Profesor: Diego Torres</li>
+                          </ul>
+                          <strong>B2</strong>
+                          <ul>
+                            <li>Horario: Martes y Jueves 19:30</li>
+                            <li>Profesor: Diego Torres</li>
+                          </ul>
+                        </div><br><br>
+                        <a href="#formulario" id="btninscribirme" class="btn btn-light mt-3">Inscribirme</a>
                     </div>
                 
                     </div>
                 </div>
-
-
+                
+                
             <!-- Aleman -->
                 <div class="col-md-4" id="card">
                     <div class="card shadow-sm">
@@ -79,7 +185,21 @@
                     <div class="card-body" id="cardPrincipal">
                         <h5 class="card-title">Aleman</h5>
                         <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
-                        <button class="ver-mas btn btn-primary" data-idioma="aleman">Ver más</button>
+                        <!-- Botón que abre/cierra -->
+                      <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#nivelesAleman" aria-expanded="false" aria-controls="nivelesAleman">
+                        Ver más
+                      </button>
+                
+                      <!-- Contenido oculto -->
+                      <div class="collapse mt-3" id="nivelesAleman">
+                        <ul class="list-group">
+                          <li class="list-group-item"><strong>A1:</strong> Lunes y Miércoles 18hs (Prof. Müller)</li>
+                          <li class="list-group-item"><strong>A2:</strong> Martes y Jueves 19hs (Prof. Schmidt)</li>
+                          <li class="list-group-item"><strong>B1:</strong> Sábados 10hs (Prof. Weber)</li>
+                          <li class="list-group-item"><strong>B2:</strong> Viernes 17hs (Prof. Braun)</li>
+                        </ul>
+                      </div><br><br>
+                      <a href="#formulario" id="btninscribirme" class="btn btn-light mt-3">Inscribirme</a>
 
                     </div>
                 
@@ -94,7 +214,21 @@
                     <div class="card-body" id="cardPrincipal">
                         <h5 class="card-title">Francés</h5>
                         <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
-                        <button class="ver-mas btn btn-primary" data-idioma="frances">Ver más</button>
+                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#nivelesFrances" aria-expanded="false" aria-controls="nivelesAleman">
+                          Ver más
+                        </button>
+                  
+                        <!-- Contenido oculto -->
+                        <div class="collapse mt-3" id="nivelesFrances">
+                          <ul class="list-group">
+                            <li class="list-group-item"><strong>A1:</strong> Lunes y Miércoles 18hs (Prof. Müller)</li>
+                            <li class="list-group-item"><strong>A2:</strong> Martes y Jueves 19hs (Prof. Schmidt)</li>
+                            <li class="list-group-item"><strong>B1:</strong> Sábados 10hs (Prof. Weber)</li>
+                            <li class="list-group-item"><strong>B2:</strong> Viernes 17hs (Prof. Braun)</li>
+                          </ul>
+                        </div><br><br>
+                        <a href="#formulario" id="btninscribirme" class="btn btn-light mt-3">Inscribirme</a>
+  
 
                     </div>
                 
@@ -109,8 +243,21 @@
                     <div class="card-body" id="cardPrincipal">
                         <h5 class="card-title">Italiano</h5>
                         <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
-                        <button class="ver-mas btn btn-primary" data-idioma="italiano">Ver más</button>
-
+                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#nivelesItaliano" aria-expanded="false" aria-controls="nivelesAleman">
+                          Ver más
+                        </button>
+                  
+                        <!-- Contenido oculto -->
+                        <div class="collapse mt-3" id="nivelesItaliano">
+                          <ul class="list-group">
+                            <li class="list-group-item"><strong>A1:</strong> Lunes y Miércoles 18hs (Prof. Müller)</li>
+                            <li class="list-group-item"><strong>A2:</strong> Martes y Jueves 19hs (Prof. Schmidt)</li>
+                            <li class="list-group-item"><strong>B1:</strong> Sábados 10hs (Prof. Weber)</li>
+                            <li class="list-group-item"><strong>B2:</strong> Viernes 17hs (Prof. Braun)</li>
+                          </ul>
+                        </div><br><br>
+                        <a href="#formulario" id="btninscribirme" class="btn btn-light mt-3">Inscribirme</a>
+  
                     </div>
                 
                     </div>
@@ -125,7 +272,21 @@
                     <div class="card-body" id="cardPrincipal">
                         <h5 class="card-title">Portugues</h5>
                         <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
-                        <button class="ver-mas btn btn-primary" data-idioma="portugues">Ver más</button>
+                        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#nivelesPortugues" aria-expanded="false" aria-controls="nivelesAleman">
+                          Ver más
+                        </button>
+                  
+                        <!-- Contenido oculto -->
+                        <div class="collapse mt-3" id="nivelesPortugues">
+                          <ul class="list-group">
+                            <li class="list-group-item"><strong>A1:</strong> Lunes y Miércoles 18hs (Prof. Müller)</li>
+                            <li class="list-group-item"><strong>A2:</strong> Martes y Jueves 19hs (Prof. Schmidt)</li>
+                            <li class="list-group-item"><strong>B1:</strong> Sábados 10hs (Prof. Weber)</li>
+                            <li class="list-group-item"><strong>B2:</strong> Viernes 17hs (Prof. Braun)</li>
+                          </ul>
+                        </div><br><br>
+                        <a href="#formulario" id="btninscribirme" class="btn btn-light mt-3">Inscribirme</a>
+  
 
                     </div>
           
@@ -140,7 +301,20 @@
                   <div class="card-body" id="cardPrincipal">
                       <h5 class="card-title">Japones</h5>
                       <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
-                      <button class="ver-mas btn btn-primary" data-idioma="japones">Ver más</button>
+                      <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#nivelesJponeses" aria-expanded="false" aria-controls="nivelesAleman">
+                        Ver más
+                      </button>
+                
+                      <!-- Contenido oculto -->
+                      <div class="collapse mt-3" id="nivelesJponeses">
+                        <ul class="list-group">
+                          <li class="list-group-item"><strong>A1:</strong> Lunes y Miércoles 18hs (Prof. Müller)</li>
+                          <li class="list-group-item"><strong>A2:</strong> Martes y Jueves 19hs (Prof. Schmidt)</li>
+                          <li class="list-group-item"><strong>B1:</strong> Sábados 10hs (Prof. Weber)</li>
+                          <li class="list-group-item"><strong>B2:</strong> Viernes 17hs (Prof. Braun)</li>
+                        </ul>
+                      </div><br><br>
+                      <a href="#formulario" id="btninscribirme" class="btn btn-light mt-3">Inscribirme</a>
 
                   </div>
         
@@ -155,13 +329,200 @@
                   <div class="card-body" id="cardPrincipal">
                       <h5 class="card-title">Chino</h5>
                       <p class="card-text">Aprendé inglés con profesores nativos y clases personalizadas.</p>
-                      <button class="ver-mas btn btn-primary" data-idioma="chino">Ver más</button>
+                      <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#nivelesChinos" aria-expanded="false" aria-controls="nivelesAleman">
+                        Ver más
+                      </button>
+                
+                      <!-- Contenido oculto -->
+                      <div class="collapse mt-3" id="nivelesChinos">
+                        <ul class="list-group">
+                          <li class="list-group-item"><strong>A1:</strong> Lunes y Miércoles 18hs (Prof. Müller)</li>
+                          <li class="list-group-item"><strong>A2:</strong> Martes y Jueves 19hs (Prof. Schmidt)</li>
+                          <li class="list-group-item"><strong>B1:</strong> Sábados 10hs (Prof. Weber)</li>
+                          <li class="list-group-item"><strong>B2:</strong> Viernes 17hs (Prof. Braun)</li>
+                        </ul>
+                      </div><br><br>
+                      <a href="#formulario" id="btninscribirme" class="btn btn-light mt-3">Inscribirme</a>
+
 
                   </div>
         
                   </div>
               </div>
             </div>
+        </section>
+
+        <!-- FORMULARIO -->
+         <section id="formulario">
+          <div class="contenido">
+            <div class="izquierda">
+              <!-- Acá podés poner una imagen, texto, lo que quieras -->
+              <h2>¡Bienvenida!</h2>
+              <p>Inscribite y accedé a beneficios exclusivos.</p>
+              <img src="http://placehold.co/500" alt="Imagen ilustrativa">
+            </div>
+            <div class="derecha">
+              <h2 id="inscripcion">Formulario de Inscripción</h2>
+              <form action="/submit" method="POST" class="form-group" id="formInscripcion">
+                <div class="form-container">
+                  <!-- COLUMNA IZQUIERDA -->
+                  <div class="column">
+                    <!-- Campo de Nombre -->
+                    <div class="form-group">
+                      <label for="nombre">Nombre:</label>
+                      <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre">
+                    </div>
+                
+                    <!-- Campo de Apellido -->
+                    <div class="form-group">
+                      <label for="apellido">Apellido:</label>
+                      <input type="text" id="apellido" name="apellido" required placeholder="Ingresa tu apellido">
+                    </div>
+                
+                    <!-- Campo de Número de Teléfono -->
+                    <div class="form-group">
+                      <label for="telefono">Número de Teléfono:</label>
+                      <input type="tel" id="telefono" name="telefono" required placeholder="Ingresa tu número de teléfono">
+                    </div>
+                
+                    <!-- Campo de Correo Electrónico -->
+                    <div class="form-group">
+                      <label for="email">Correo Electrónico:</label>
+                      <input type="email" id="email" name="email" required placeholder="Ingresa tu correo electrónico">
+                    </div>
+                  </div>
+
+
+                  <!-- COLUMNA DERECHA -->
+                  <div class="column">
+                    <div class="form-group">
+                      <label for="idioma">Idioma:</label>
+                      <select id="idioma" name="modalidad" required>
+                        <option value="Ingles">Ingles</option>
+                        <option value="Aleman">Aleman</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Frances">Frances</option>
+                        <option value="Chino">Chino</option>
+                        <option value="Japones">Japones</option>
+                        <option value="Portugues">Portugues</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="nivel">Nivel:</label>
+                      <select id="nivel" name="modalidad" required>
+                        <option value="a1">A1</option>
+                        <option value="a2">A2</option>
+                        <option value="b1">B1</option>
+                        <option value="b2">B2</option>
+                      </select>
+                    </div>
+                
+                    <div class="form-group">
+                      <label for="modalidad">Modalidad:</label>
+                      <select id="modalidad" name="modalidad" required>
+                        <option value="Presencial">Presencial</option>
+                        <option value="Virtual">Virtual</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="horario">Horario:</label>
+                      <select id="horario" name="horario" required>
+                        <option value="mañana">Mañana</option>
+                        <option value="tarde">Tarde</option>
+                      </select>
+                    </div>
+                </div>
+                
+            
+                <!-- Botón de Envío -->
+                <div class="form-group form-group-full" >
+                  <!-- <button  id="enviar"type="submit">Enviar Inscripción</button>
+                </div> -->
+                <button type="button" id="enviar"class="btn btn-primary">Enviar Inscripciónnnn</button>
+
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="..." class="rounded me-2" alt="...">
+                      <strong class="me-auto">Bootstrap</strong>
+                      <small>11 mins ago</small>
+                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Hello, world! This is a toast message.
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </form>
+            </div>
+          </div>
+         </section>
+
+        <!-- Testimonios en cards -->
+        <section id="testimonios" class="py-5" class="d-none">
+          <div class="container">
+            <h2 class="text-center mb-5">Lo que dicen nuestros estudiantes</h2>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                  <div class="row g-0">
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Martina González</h5>
+                        <p class="card-text">“Gracias a esta escuela, pude viajar a Alemania y desenvolverme perfectamente.”</p>
+                        <p class="card-text"><small class="text-muted">Estudiante de Alemán</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                  <div class="row g-0">
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Lucas Pérez</h5>
+                        <p class="card-text">“La metodología es clara y los profes súper dedicados. ¡Estoy encantado con italiano!”</p>
+                        <p class="card-text"><small class="text-muted">Estudiante de Italiano</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                  <div class="row g-0">
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Camila Suárez</h5>
+                        <p class="card-text">"Con las clases de francés mejoré muchísimo mi pronunciación. ¡Hasta miro pelis sin subtítulos!"</p>
+                        <p class="card-text"><small class="text-muted">Estudiante de Francés</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                  <div class="row g-0">
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Sofía Romero</h5>
+                        <p class="card-text">"Nunca pensé que me iba a sentir tan segura hablando en inglés. Las clases son súper prácticas."</p>
+                        <p class="card-text"><small class="text-muted">Estudiante de Inglés</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <!--  Sección de detalle (oculta al principio) -->
         <section id="detalle-idioma" class="d-none">
@@ -174,52 +535,7 @@
             </div>
         <!--  Sección de inscripcion (oculta al principio) -->
         </section>
-        <section id="formulario-inscripcion" class="d-none">
-          <h2>Formulario de Inscripción</h2>
-          <h4 id="titulo-inscripcion" class="mb-3"></h4>
-          <form action="/submit" method="POST" id="formulario"></form>
-            <!-- Campo de Nombre -->
-            <div class="form-group">
-              <label for="nombre">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre">
-            </div>
-
-            <!-- Campo de Apellido -->
-            <div class="form-group">
-              <label for="apellido">Apellido:</label>
-              <input type="text" id="apellido" name="apellido" required placeholder="Ingresa tu apellido">
-            </div>
-
-            <!-- Campo de Número de Teléfono -->
-            <div class="form-group">
-              <label for="telefono">Número de Teléfono:</label>
-              <input type="tel" id="telefono" name="telefono" required placeholder="Ingresa tu número de teléfono">
-            </div>
-
-            <!-- Campo de Correo Electrónico -->
-            <div class="form-group">
-              <label for="email">Correo Electrónico:</label>
-              <input type="email" id="email" name="email" required placeholder="Ingresa tu correo electrónico">
-            </div>
-
-            <!-- Modalidad -->
-            <div class="form-group">
-              <label for="modalidad">Modalidad:</label>
-              <select id="modalidad" name="modalidad" required></select>
-            </div>
-
-            <!-- Horario -->
-            <div class="form-group">
-              <label for="horario">Horario:</label>
-              <select id="horario" name="horario" required></select>
-            </div>
-    
-            <!-- Botón de Envío -->
-            <div class="form-group">
-              <button type="submit" id='enviar'class="btn btn-primary">Enviar Inscripción</button>
-            </div>
-          </form>
-        </section>
+        
       </main>
       <footer class="bg-light text-dark mt-5 py-4 shadow-sm">
         <div class="container">
@@ -250,7 +566,15 @@
           </div>
         </div>
       </footer>
-       
+      <footer class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2025 Lingüística. Desarrollado por Emilia Polliotto.</p>
+        </div>
+      </footer>
+ 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 <script src="script.js"></script>
+
+
 </html>

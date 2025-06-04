@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
 header {
     position: sticky;
     top: 0;
@@ -22,66 +27,253 @@ header {
 
   #card {
     margin: 20px; /* espacio alrededor de cada card */
-  }
-  
-  
-  #card {
     width: 30%;
   }
-  
-  
-  
+
+  #btninscribirme{
+    background-color: #1531e6;
+    color: #e0e0e0;
+  }
+
+/* --- ESTILOS GENERALES DE LA SECCIÓN FORMULARIO --- */
+#formulario {
+  padding: 60px 0; /* Espacio superior e inferior */
+  background-color: #f8f9fa; /* Un color de fondo suave para toda la sección */
+}
+
+#formulario .contenido {
+  display: flex; 
+  justify-content: center; /* Centrar el contenido horizontalmente si hay espacio extra */
+  align-items: flex-start; /* Alinear los elementos al inicio verticalmente (arriba) */
+  gap: 50px; /* Espacio generoso entre la columna de bienvenida y la del formulario */
+  max-width: 1200px; /* Ancho máximo para el contenedor del formulario */
+  margin: 0 auto; /* Centrar el contenedor en la página */
+  padding: 0 25px; /* Padding lateral para que no se pegue a los bordes */
+}
+
+/* --- ESTILOS DE LA COLUMNA IZQUIERDA (Bienvenida e Imagen) --- */
+#formulario .izquierda {
+  flex: 2; /* Ocupa 2 partes del espacio disponible */
+  padding: 30px 0; /* Padding vertical, sin horizontal para que se "funda" */
+  display: flex; /* Para organizar el contenido interno (h2, p, img) */
+  flex-direction: column;
+  justify-content: flex-start; /* Alinear al inicio, ya que el formulario es más alto */
+  align-items: center; /* Centra el contenido horizontalmente (texto e imagen) */
+  text-align: center;
+}
+
+#formulario .izquierda h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 2.2em;
+}
+
+#formulario .izquierda p {
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+
+#formulario .izquierda img {
+  max-width: 100%; /* Asegura que la imagen no se desborde */
+  height: auto; /* Mantiene la proporción */
+  border-radius: 8px; /* Borde redondeado para la imagen */
+}
+
+/* --- ESTILOS DE LA COLUMNA DERECHA (TODO EL FORMULARIO) --- */
+#formulario .derecha {
+  flex: 3; /* Ocupa 3 partes del espacio (el formulario será más ancho) */
+  padding: 40px; /* Espacio interno dentro del recuadro del formulario */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra para el recuadro */
+  border: 1px solid #e0e0e0; /* Borde sutil */
+}
+
+#formulario .derecha h2 {
+  color: #007bff; /* Título del formulario */
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+
+
+/* --- ESTILOS PARA CADA CAMPO DE FORMULARIO (form-group) --- */
+.form-group {
+  margin-bottom: 20px; /* Espacio entre cada campo (label + input/select) */
+}
+
+.form-group label {
+  display: block; /* La etiqueta ocupa su propia línea */
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.05em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group select {
+  width: 100%; /* Ocupa todo el ancho disponible de su columna */
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  color: #555;
+  background-color: #fcfcfc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 18px;
+  cursor: pointer;
+}
+
+/* --- ESTILO DEL BOTÓN DE ENVÍO --- */
+#enviar {
+  display: block; /* Para que ocupe todo el ancho */
+  width: 100%;
+  padding: 15px 25px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 30px; /* Espacio superior para el botón */
+}
+
+#enviar:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+#enviar:active {
+  transform: translateY(0);
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVE (Ajustes para pantallas más pequeñas) --- */
+@media (max-width: 992px) {
+  #formulario .contenido {
+      flex-direction: column; /* Apilar las columnas principales (bienvenida y formulario) */
+      align-items: center;
+      gap: 30px;
+  }
+
+  #formulario .izquierda,
+  #formulario .derecha {
+      flex: none; /* Resetear flex para que ocupen todo el ancho */
+      width: 100%; /* Ocupan el 100% del ancho del contenedor */
+      max-width: 600px; /* Limitar el ancho máximo para evitar estiramientos */
+  }
+
+  #formulario .izquierda {
+      padding: 25px 0; /* Padding vertical, sin lateral */
+  }
+
+  #formulario .derecha {
+      padding: 30px;
+  }
+
+  .form-container {
+      flex-direction: column; /* Apilar las columnas de campos en pantallas medianas */
+      gap: 15px; /* Reducir el espacio entre campos apilados */
+  }
+
+  .form-container .column {
+      min-width: unset; /* Reiniciar min-width */
+      width: 100%; /* Ocupan todo el ancho */
+  }
+
+  .form-group {
+      margin-bottom: 15px; /* Reducir espacio entre campos apilados */
+  }
+}
+
+@media (max-width: 576px) {
+  #formulario .contenido {
+      padding: 0 15px; /* Reducir el padding lateral en móviles */
+  }
+
+  #formulario .izquierda h2 {
+      font-size: 1.8em;
+  }
+
+  #formulario .derecha h2 {
+      font-size: 2em;
+  }
+
+  #formulario .izquierda {
+      padding: 15px 0;
+  }
+
+  #formulario .derecha {
+      padding: 25px;
+  }
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
 
 /* SECCION INSCRIPCION */
 h2 {
-    text-align: center;
-    margin-top: 30px ;
-    margin-bottom: 30px;
-  }
-  
-  form {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input, select, button {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    border: none;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
 
-  html {
-    scroll-behavior: smooth;
-  }
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 100px 100px rgba(0, 0, 0, 0.1);
+}
+
 
 /* SECCION SOBRE NOSOTROS */
+
+#sobreNosotros{
+  margin-top: 50px;
+  margin-bottom: 50;
+}
+
+#nuestraHistoria{
+  margin-top: 50px;
+  margin-bottom: 50;
+}
+
+#nuestraHistoria .inscribete{
+  border-color: #28a745;
+}
 
   .timeline {
     list-style: none;
@@ -135,71 +327,110 @@ h2 {
 }
 
 
-/* SECCION INSCRIPCION */
-h2 {
+
+
+/* seccion mis inscripciones */
+
+/* Contenedor de las Cards de Idioma */
+.cards-container {
+  display: flex; /* Habilita Flexbox: los ítems se alinearán en una fila por defecto */
+  flex-wrap: wrap; /* Permite que las cards salten a la siguiente fila si no hay espacio */
+  justify-content: flex-start; /* Alinea las cards al inicio de la fila */
+  /* justify-content: center;  <-- Opcional: si quieres que las cards se centren horizontalmente */
+  /* justify-content: space-around; <-- Opcional: distribuye el espacio alrededor de los ítems */
+  /* justify-content: space-between; <-- Opcional: distribuye el espacio entre los ítems (bordes pegados) */
+
+  gap: 20px; /* ¡ESTO CREA EL ESPACIO ENTRE LAS CARDS! */
+  /* Puedes ajustar el valor (ej. 15px, 30px) según lo que te guste más */
+
+  padding: 20px 0; /* Un poco de espacio vertical alrededor del contenedor de cards */
+  max-width: 1200px; /* Opcional: Limita el ancho del contenedor para que no se estire demasiado */
+  margin: 0 auto; /* Opcional: Centra el contenedor en la página */
+}
+
+/* Estilos básicos para las cards individuales (puedes adaptarlos) */
+.card-idioma {
+  background-color: #ffffff; /* Fondo blanco */
+  border: 1px solid #e0e0e0; /* Borde sutil */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  padding: 20px;
+  width: calc(33.33% - 20px); /* Ejemplo: 3 cards por fila con gap de 20px */
+  /* Si quieres 2 cards por fila: width: calc(50% - 10px); (ajusta el -10px según el gap) */
+  /* min-width: 280px; /* Asegura que la card no se haga demasiado pequeña */
+  box-sizing: border-box; /* Incluye padding y border en el width */
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-form {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.card-idioma h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+  font-size: 1.4em;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
-
-label {
-  font-weight: 600;
-  display: block;
-  margin-bottom: 8px;
+.card-idioma p {
   color: #555;
-  font-size: 0.95rem;
+  margin-bottom: 5px;
 }
 
-input, select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #fdfdfd;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+/* Media Queries para Responsividad (ejemplo) */
+@media (max-width: 992px) {
+  .card-idioma {
+      width: calc(50% - 15px); /* 2 cards por fila en pantallas medianas, ajusta el gap */
+  }
 }
 
-input:focus, select:focus {
-  border-color: #4CAF50;
-  outline: none;
+@media (max-width: 576px) {
+  .card-idioma {
+      width: 100%; /* 1 card por fila en pantallas pequeñas */
+  }
+  .cards-container {
+      padding: 15px; /* Ajusta padding en móviles */
+  }
 }
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+
+
+/* Estilos para el footer inferior de copyright */
+.footer-bottom {
+  background-color: #f3f5f6; /* Un verde oscuro, como el de la imagen de ejemplo */
+  color: rgb(12, 6, 6); /* Texto blanco */
+  padding: 20px 0; /* Espacio interno superior e inferior */
+  text-align: center; /* Centrar el texto */
+  font-size: 0.9em; /* Tamaño de fuente ligeramente más pequeño */
+  margin-top: 0; /* Asegurarse de que no haya margen superior si el footer de arriba tiene margin-bottom */
+  width: 100%; /* Ocupar todo el ancho */
+  box-sizing: border-box; /* Incluir padding en el width total */
 }
 
-button:hover {
-  background-color: #45a049;
+.footer-bottom .container {
+  /* Si usas la clase 'container' de Bootstrap, ya manejará el ancho y centrado.
+     Si no usas Bootstrap, o quieres un ancho específico para este footer,
+     puedes añadir aquí: */
+     max-width: 1200px;
+     margin: 0 auto;
+  
 }
 
-html {
-  scroll-behavior: smooth;
+.footer-bottom p {
+  margin-bottom: 0; /* Eliminar el margen inferior predeterminado de los párrafos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px; /* Espacio entre el texto y el ícono si lo añades */
 }
 
+/* --- NUEVO CÓDIGO PARA EL LIBRO --- */
+.footer-bottom p::after {
+  content: '\1F4DA'; /* Código Unicode para un libro (Stack of Books) */
+  font-size: 1.2em; /* Puedes ajustar el tamaño si lo necesitas */
+  margin-left: 8px; /* Un poco más de espacio a la izquierda para separarlo del texto */
+  vertical-align: middle; /* Ayuda a alinear el ícono con el texto */
+}
+
+/* Si usas Font Awesome o similar, usarías así: */
+.footer-bottom p .fa-leaf {
+  color: #fff;
+  margin-left: 5px;
+  font-size: 1.1em;
+} 

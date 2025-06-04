@@ -156,133 +156,47 @@
     ]
   };
 
-  const verMasBtns = document.querySelectorAll('.ver-mas');
-  const idiomasSection = document.getElementById('idiomas');
-  const detalleSection = document.getElementById('detalle-idioma');
-  const nivelesContainer = document.getElementById('niveles-container');
-  const tituloIdioma = document.getElementById('titulo-idioma');
-  const volverBtn = document.getElementById('volver');
-  const heroSection = document.querySelector('.hero-cursos'); // agregá esta línea arriba con los otros selects
-
-
-  verMasBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const idioma = btn.dataset.idioma;
-      mostrarDetalle(idioma);
-    });
-  });
-
-  volverBtn.addEventListener('click', () => {
-    detalleSection.classList.add('d-none');
-    idiomasSection.classList.remove('d-none');
-    heroSection.classList.remove('d-none');
-  });
-
-  function mostrarDetalle(idioma) {
-    // Cambiamos títulos
-    tituloIdioma.textContent = `Niveles de ${idioma.charAt(0).toUpperCase() + idioma.slice(1)}`;
-
-    // Limpiamos contenedor y ocultamos herosection
-    nivelesContainer.innerHTML = "";
-    heroSection.classList.add('d-none');
-
-
-    // Agregamos las cards de niveles
-    nivelesPorIdioma[idioma].forEach(nivel => {
-      const col = document.createElement('div');
-      col.className = 'col-md-3 mb-4';
-      col.innerHTML = `
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">${nivel.nombre}</h5>
-            <p class="card-text">Contenido del ${nivel.nombre}. Aprendé con material exclusivo.</p>
-            <button class="btn btn-outline-primary inscribirme-btn"
-                  data-idioma="${idioma}"
-                  data-nivel="${nivel.nombre}"
-                  data-modalidades='${JSON.stringify(nivel.modalidades)}'
-                  data-horarios='${JSON.stringify(nivel.horarios)}'>
-                Inscribirme
-          </div>
-        </div>
-      `;
-      nivelesContainer.appendChild(col);
-    });
-
-    // Esperamos a que se rendericen los botones y les agregamos funcionalidad
-    setTimeout(() => {
-        const botones = document.querySelectorAll('.inscribirme-btn');
-        botones.forEach(btn => {
-          btn.addEventListener('click', () => {
-            const idioma = btn.dataset.idioma;
-            const nivel = btn.dataset.nivel;
-            const modalidades = JSON.parse(btn.dataset.modalidades);
-            const horarios = JSON.parse(btn.dataset.horarios);
-            const formularioDiv = document.getElementById('formulario-inscripcion');
-            const tituloInscripcion = document.getElementById('titulo-inscripcion');
-            const formulario = document.getElementById('formulario');
-            const modalidadSelect = document.getElementById('modalidad');
-            const horarioSelect = document.getElementById('horario');
-            document.getElementById('detalle-idioma').classList.add('d-none');
-            
-
-            const infoCurso = {
-            idioma,
-            nivel,
-            modalidades,
-            horarios
-            };
-
-            localStorage.setItem('infoCurso', JSON.stringify(infoCurso));
-
-            // formulario
-            tituloInscripcion.textContent = `Inscripción a ${idioma} - Nivel ${nivel}`;
-
-            // Limpiar y rellenar selects
-            modalidadSelect.innerHTML = '';
-            modalidades.forEach(m => {
-              const option = document.createElement('option');
-              option.value = m;
-              option.textContent = m;
-              modalidadSelect.appendChild(option);
-            });
-  
-            horarioSelect.innerHTML = '';
-            horarios.forEach(h => {
-              const option = document.createElement('option');
-              option.value = h;
-              option.textContent = h;
-              horarioSelect.appendChild(option);
-            });
-
-            // mostrar formulario
-            formularioDiv.classList.remove('d-none');        
-            
-            
-           });
-  }, 50);
-
-    // Cambiamos la vista
-    idiomasSection.classList.add('d-none');
-    detalleSection.classList.remove('d-none');
-})
-} 
-
-
 
 // Obtener los elementos
 const formulario = document.getElementById('formulario');
 const formularioDiv = document.getElementById('formulario-inscripcion');
+const formInscripcion = document.getElementById('formInscripcion')
+
+// --- NUEVO CÓDIGO PARA MANEJAR LA EDICIÓN ---
+document.addEventListener('DOMContentLoaded', () => {
+  const inscripcionEnEdicion = JSON.parse(localStorage.getItem('inscripcionEnEdicion'));
+  const indiceEnEdicion = localStorage.getItem('indiceInscripcionEnEdicion');
+
+  if (inscripcionEnEdicion && indiceEnEdicion !== null) {
+      // Rellenar el formulario con los datos de la inscripción en edición
+      document.getElementById('nombre').value = inscripcionEnEdicion.nombre;
+      document.getElementById('apellido').value = inscripcionEnEdicion.apellido;
+      document.getElementById('telefono').value = inscripcionEnEdicion.telefono;
+      document.getElementById('email').value = inscripcionEnEdicion.email;
+      document.getElementById('idioma').value = inscripcionEnEdicion.idioma;
+      document.getElementById('nivel').value = inscripcionEnEdicion.nivel;
+      document.getElementById('modalidad').value = inscripcionEnEdicion.modalidad;
+      document.getElementById('horario').value = inscripcionEnEdicion.horario;
+
+      // Cambiar el texto del botón si estás en modo edición (opcional, pero buena UX)
+      document.getElementById('enviar').textContent = 'Guardar Cambios';
+
+      // Limpiar los elementos temporales de localStorage para evitar recargas automáticas en edición
+      localStorage.removeItem('inscripcionEnEdicion');
+      localStorage.removeItem('indiceInscripcionEnEdicion');
+  }
+});
 
 document.getElementById('enviar').addEventListener('click',function(){
-  const infoCursoGuardado = JSON.parse(localStorage.getItem('infoCurso'));
+  // const infoCursoGuardado = JSON.parse(localStorage.getItem('infoCurso'));
 
   let inscripcion = {
     nombre : document.getElementById('nombre').value,
     apellido : document.getElementById('apellido').value,
     telefono : document.getElementById('telefono').value,
     email : document.getElementById('email').value,
-    idioma : infoCursoGuardado?.idioma,
-    nivel : infoCursoGuardado?.nivel,
+    idioma : document.getElementById('idioma').value,
+    nivel : document.getElementById('nivel').value,
     modalidad : document.getElementById('modalidad').value,
     horario : document.getElementById('horario').value,
   }
@@ -291,13 +205,35 @@ document.getElementById('enviar').addEventListener('click',function(){
   const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
   inscripciones.push(inscripcion);
   localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
+  // Ahora verificamos si estamos en modo edición o creando una nueva
+  const indiceParaActualizar = localStorage.getItem('indiceInscripcionEnEdicion'); // Volvemos a leerlo por si acaso
 
-  alert("Inscripción realizada con éxito ✨");
+  if (indiceParaActualizar !== null && indiceParaActualizar !== undefined) {
+      // Modo edición: actualizamos la inscripción existente
+      inscripciones[parseInt(indiceParaActualizar)] = inscripcionActual;
+      localStorage.removeItem('indiceInscripcionEnEdicion'); // Limpiar el índice de edición después de usarlo
+      document.getElementById('enviar').textContent = 'Enviar Inscripción'; // Volver el texto original
+  } else {
+      // Modo nueva inscripción: agregamos una nueva
+      inscripciones.push(inscripcionActual);
+  }
 
-  // Reiniciar y ocultar formulario
-  formulario.reset();
-  formularioDiv.classList.add('d-none');
-  idiomasSection.classList.remove('d-none');
-  heroSection.classList.remove('d-none');
-  window.location.href = "inscripcion.html";
-})
+  localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
+
+  // Redirigir a la página de inscripciones después de guardar
+  window.location.href = 'inscripcion.html';
+
+  // Limpiar el formulario DESPUÉS de guardar y redirigir
+  // Aunque la redirección ya lo "limpiará" al cargar la nueva página,
+  // es buena práctica si el usuario no redirigiera inmediatamente.
+  document.getElementById('nombre').value = '';
+  document.getElementById('apellido').value = '';
+  document.getElementById('telefono').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('idioma').selectedIndex = 0;
+  document.getElementById('nivel').selectedIndex = 0;
+  document.getElementById('modalidad').selectedIndex = 0;
+  document.getElementById('horario').selectedIndex = 0;
+
+  // alert("Inscripción realizada con éxito ✨");
+});
