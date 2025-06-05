@@ -1,239 +1,361 @@
-  // Idiomas y niveles que querés mostrar
-  const nivelesPorIdioma = {
-    ingles: [
+
+// Objeto con la estructura de idiomas, niveles, modalidades y horarios
+const nivelesPorIdioma = {
+  ingles: [
       {
-        nombre: "A1",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
+          nombre: "A1",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
       },
       {
-        nombre: "A2",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
+          nombre: "A2",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
       },
       {
-        nombre: "B1",
-        modalidades: ["Virtual"],
-        horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
+          nombre: "B1",
+          modalidades: ["Virtual"],
+          horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
       },
       {
-        nombre: "B2",
-        modalidades: ["Virtual", 'Presencial'],
-        horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
+          nombre: "B2",
+          modalidades: ["Virtual", 'Presencial'],
+          horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
       }
-    ],
-    aleman: [
+  ],
+  aleman: [
       {
-        nombre: "A1",
-        modalidades: ["Presencial"],
-        horarios: ["Lunes y Jueves 9:00", "Miércoles y Viernes 13:00"]
+          nombre: "A1",
+          modalidades: ["Presencial"],
+          horarios: ["Lunes y Jueves 9:00", "Miércoles y Viernes 13:00"]
       },
       {
-        nombre: "A2",
-        modalidades: ["Virtual"],
-        horarios: ["Martes y Jueves 16:00", "Sábado 10:00"]
+          nombre: "A2",
+          modalidades: ["Virtual"],
+          horarios: ["Martes y Jueves 16:00", "Sábado 10:00"]
       },
       {
-        nombre: "B1",
-        modalidades: ["Presencial"],
-        horarios: ["Miércoles y Viernes 18:30", "Lunes 11:00"]
+          nombre: "B1",
+          modalidades: ["Presencial"],
+          horarios: ["Miércoles y Viernes 18:30", "Lunes 11:00"]
       },
       {
-        nombre: "B2",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Martes y Jueves 19:00", "Viernes 14:00"]
+          nombre: "B2",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Martes y Jueves 19:00", "Viernes 14:00"]
       }
-    ],
-    frances: [
+  ],
+  frances: [
       {
-        nombre: "A1",
-        modalidades: ["Virtual"],
-        horarios: ["Martes y Jueves 8:00", "Sábado 10:30"]
+          nombre: "A1",
+          modalidades: ["Virtual"],
+          horarios: ["Martes y Jueves 8:00", "Sábado 10:30"]
       },
       {
-        nombre: "A2",
-        modalidades: ["Presencial"],
-        horarios: ["Lunes y Miércoles 15:00", "Viernes 10:00"]
+          nombre: "A2",
+          modalidades: ["Presencial"],
+          horarios: ["Lunes y Miércoles 15:00", "Viernes 10:00"]
       },
       {
-        nombre: "B1",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Martes 18:00", "Jueves 12:00"]
+          nombre: "B1",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Martes 18:00", "Jueves 12:00"]
       },
       {
-        nombre: "B2",
-        modalidades: ["Virtual"],
-        horarios: ["Lunes y Miércoles 20:00", "Sábado 11:30"]
+          nombre: "B2",
+          modalidades: ["Virtual"],
+          horarios: ["Lunes y Miércoles 20:00", "Sábado 11:30"]
       }
-    ],
-    italiano: [
+  ],
+  italiano: [
       {
-        nombre: "A1",
-        modalidades: ["Presencial"],
-        horarios: ["Martes y Jueves 10:00", "Viernes 9:30"]
+          nombre: "A1",
+          modalidades: ["Presencial"],
+          horarios: ["Martes y Jueves 10:00", "Viernes 9:30"]
       },
       {
-        nombre: "A2",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Lunes y Miércoles 16:00", "Martes y Jueves 14:00"]
+          nombre: "A2",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Lunes y Miércoles 16:00", "Martes y Jueves 14:00"]
       },
       {
-        nombre: "B1",
-        modalidades: ["Virtual"],
-        horarios: ["Miércoles 17:00", "Viernes 12:00"]
+          nombre: "B1",
+          modalidades: ["Virtual"],
+          horarios: ["Miércoles 17:00", "Viernes 12:00"]
       },
       {
-        nombre: "B2",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Martes y Viernes 18:00", "Sábado 9:00"]
+          nombre: "B2",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Martes y Viernes 18:00", "Sábado 9:00"]
       }
-    ],
-    portugues: [
+  ],
+  portugues: [
       {
-        nombre: "A1",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
+          nombre: "A1",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
       },
       {
-        nombre: "A2",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
+          nombre: "A2",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
       },
       {
-        nombre: "B1",
-        modalidades: ["Virtual"],
-        horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
+          nombre: "B1",
+          modalidades: ["Virtual"],
+          horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
       },
       {
-        nombre: "B2",
-        modalidades: ["Virtual", 'Presencial'],
-        horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
+          nombre: "B2",
+          modalidades: ["Virtual", 'Presencial'],
+          horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
       }
-    ],
-    japones: [
+  ],
+  japones: [
       {
-        nombre: "A1",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
+          nombre: "A1",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
       },
       {
-        nombre: "A2",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
+          nombre: "A2",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
       },
       {
-        nombre: "B1",
-        modalidades: ["Virtual"],
-        horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
+          nombre: "B1",
+          modalidades: ["Virtual"],
+          horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
       },
       {
-        nombre: "B2",
-        modalidades: ["Virtual", 'Presencial'],
-        horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
+          nombre: "B2",
+          modalidades: ["Virtual", 'Presencial'],
+          horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
       }
-    ],
-    chino: [
+  ],
+  chino: [
       {
-        nombre: "A1",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
+          nombre: "A1",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
       },
       {
-        nombre: "A2",
-        modalidades: ["Virtual", "Presencial"],
-        horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
+          nombre: "A2",
+          modalidades: ["Virtual", "Presencial"],
+          horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
       },
       {
-        nombre: "B1",
-        modalidades: ["Virtual"],
-        horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
+          nombre: "B1",
+          modalidades: ["Virtual"],
+          horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
       },
       {
-        nombre: "B2",
-        modalidades: ["Virtual", 'Presencial'],
-        horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
+          nombre: "B2",
+          modalidades: ["Virtual", 'Presencial'],
+          horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
       }
-    ]
-  };
+  ]
+};
+
+// Obtener referencias a los elementos del formulario
+const idiomaSelect = document.getElementById('idioma');
+const nivelSelect = document.getElementById('nivel');
+const modalidadSelect = document.getElementById('modalidad');
+const horarioSelect = document.getElementById('horario');
+const enviarButton = document.getElementById('enviar'); // El botón de enviar/guardar
+const formInscripcion = document.getElementById('formInscripcion'); // El elemento <form>
+const tituloFormulario = document.getElementById('titulo-formulario'); // Asumiendo que tienes un h2 o h1 con este id para cambiar el título
+
+// Función para actualizar los niveles basado en el idioma seleccionado
+function actualizarNiveles() {
+  const idiomaSeleccionado = idiomaSelect.value.toLowerCase();
+  const niveles = nivelesPorIdioma[idiomaSeleccionado] || [];
+
+  nivelSelect.innerHTML = '<option value="">Seleccione un nivel</option>'; // Limpiar y añadir opción por defecto
+  modalidadSelect.innerHTML = '<option value="">Seleccione una modalidad</option>';
+  horarioSelect.innerHTML = '<option value="">Seleccione un horario</option>';
+
+  nivelSelect.disabled = true;
+  modalidadSelect.disabled = true;
+  horarioSelect.disabled = true;
+
+  if (niveles.length > 0) {
+      niveles.forEach(nivel => {
+          const option = document.createElement('option');
+          option.value = nivel.nombre;
+          option.textContent = nivel.nombre;
+          nivelSelect.appendChild(option);
+      });
+      nivelSelect.disabled = false;
+  }
+}
+
+// Función para actualizar las modalidades basado en el nivel seleccionado
+function actualizarModalidades() {
+  const idiomaSeleccionado = idiomaSelect.value.toLowerCase();
+  const nivelSeleccionado = nivelSelect.value;
+  const niveles = nivelesPorIdioma[idiomaSeleccionado] || [];
+  const nivelEncontrado = niveles.find(n => n.nombre === nivelSeleccionado);
+
+  modalidadSelect.innerHTML = '<option value="">Seleccione una modalidad</option>';
+  horarioSelect.innerHTML = '<option value="">Seleccione un horario</option>';
+
+  modalidadSelect.disabled = true;
+  horarioSelect.disabled = true;
+
+  if (nivelEncontrado && nivelEncontrado.modalidades.length > 0) {
+      nivelEncontrado.modalidades.forEach(modalidad => {
+          const option = document.createElement('option');
+          option.value = modalidad;
+          option.textContent = modalidad;
+          modalidadSelect.appendChild(option);
+      });
+      modalidadSelect.disabled = false;
+  }
+}
+
+// Función para actualizar los horarios basado en la modalidad y nivel seleccionados
+function actualizarHorarios() {
+  const idiomaSeleccionado = idiomaSelect.value.toLowerCase();
+  const nivelSeleccionado = nivelSelect.value;
+  const modalidadSeleccionada = modalidadSelect.value;
+
+  const niveles = nivelesPorIdioma[idiomaSeleccionado] || [];
+  const nivelEncontrado = niveles.find(n => n.nombre === nivelSeleccionado);
+
+  horarioSelect.innerHTML = '<option value="">Seleccione un horario</option>';
+  horarioSelect.disabled = true;
+
+  if (nivelEncontrado && nivelEncontrado.modalidades.includes(modalidadSeleccionada)) {
+      // Asume que los horarios son globales para el nivel, o tendrías que anidarlos más
+      nivelEncontrado.horarios.forEach(horario => {
+          const option = document.createElement('option');
+          option.value = horario;
+          option.textContent = horario;
+          horarioSelect.appendChild(option);
+      });
+      horarioSelect.disabled = false;
+  }
+}
+
+// Escuchadores de eventos para los selects
+idiomaSelect.addEventListener('change', actualizarNiveles);
+nivelSelect.addEventListener('change', actualizarModalidades);
+modalidadSelect.addEventListener('change', actualizarHorarios);
 
 
-// Obtener los elementos
-const formulario = document.getElementById('formulario');
-const formularioDiv = document.getElementById('formulario-inscripcion');
-const formInscripcion = document.getElementById('formInscripcion')
-
-// --- NUEVO CÓDIGO PARA MANEJAR LA EDICIÓN ---
+// --- LÓGICA DE CARGA Y EDICIÓN DEL FORMULARIO ---
 document.addEventListener('DOMContentLoaded', () => {
+  // Recuperar la inscripción y el índice de edición de localStorage
   const inscripcionEnEdicion = JSON.parse(localStorage.getItem('inscripcionEnEdicion'));
   const indiceEnEdicion = localStorage.getItem('indiceInscripcionEnEdicion');
 
   if (inscripcionEnEdicion && indiceEnEdicion !== null) {
-      // Rellenar el formulario con los datos de la inscripción en edición
+      // Modo Edición: Rellenar el formulario
       document.getElementById('nombre').value = inscripcionEnEdicion.nombre;
       document.getElementById('apellido').value = inscripcionEnEdicion.apellido;
       document.getElementById('telefono').value = inscripcionEnEdicion.telefono;
       document.getElementById('email').value = inscripcionEnEdicion.email;
-      document.getElementById('idioma').value = inscripcionEnEdicion.idioma;
-      document.getElementById('nivel').value = inscripcionEnEdicion.nivel;
-      document.getElementById('modalidad').value = inscripcionEnEdicion.modalidad;
-      document.getElementById('horario').value = inscripcionEnEdicion.horario;
 
-      // Cambiar el texto del botón si estás en modo edición (opcional, pero buena UX)
-      document.getElementById('enviar').textContent = 'Guardar Cambios';
+      // Para los selects, primero rellenar los datos de cascada
+      idiomaSelect.value = inscripcionEnEdicion.idioma;
+      actualizarNiveles(); // Llama a la función para cargar los niveles del idioma seleccionado
+      nivelSelect.value = inscripcionEnEdicion.nivel;
+      actualizarModalidades(); // Carga las modalidades del nivel seleccionado
+      modalidadSelect.value = inscripcionEnEdicion.modalidad;
+      actualizarHorarios(); // Carga los horarios de la modalidad y nivel seleccionados
+      horarioSelect.value = inscripcionEnEdicion.horario;
 
-      // Limpiar los elementos temporales de localStorage para evitar recargas automáticas en edición
-      // localStorage.removeItem('inscripcionEnEdicion');
-      // localStorage.removeItem('indiceInscripcionEnEdicion');
-  }
-});
+      // Cambiar el texto del botón y el título del formulario
+      enviarButton.textContent = 'Guardar Cambios';
+      if(tituloFormulario) tituloFormulario.textContent = 'Editar Inscripción';
 
-document.getElementById('enviar').addEventListener('click',function(){
-  // const infoCursoGuardado = JSON.parse(localStorage.getItem('infoCurso'));
-
-  let inscripcion = {
-    nombre : document.getElementById('nombre').value,
-    apellido : document.getElementById('apellido').value,
-    telefono : document.getElementById('telefono').value,
-    email : document.getElementById('email').value,
-    idioma : document.getElementById('idioma').value,
-    nivel : document.getElementById('nivel').value,
-    modalidad : document.getElementById('modalidad').value,
-    horario : document.getElementById('horario').value,
-  }
-
-  // Recuperar las inscripciones guardadas y añadir la nueva
-  const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
-  inscripciones.push(inscripcion);
-  localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
-  // Ahora verificamos si estamos en modo edición o creando una nueva
-  const indiceParaActualizar = localStorage.getItem('indiceInscripcionEnEdicion'); // Volvemos a leerlo por si acaso
-
-  if (indiceParaActualizar !== null && indiceParaActualizar !== undefined) {
-      // Modo edición: actualizamos la inscripción existente
-      inscripciones[parseInt(indiceParaActualizar)] = inscripcionActual;
-      localStorage.removeItem('indiceInscripcionEnEdicion'); // Limpiar el índice de edición después de usarlo
-      document.getElementById('enviar').textContent = 'Enviar Inscripción'; // Volver el texto original
   } else {
-      // Modo nueva inscripción: agregamos una nueva
-      inscripciones.push(inscripcionActual);
+      // Modo Nueva Inscripción: Limpiar el formulario y resetear estados
+      formInscripcion.reset(); // Limpia todos los inputs
+      idiomaSelect.selectedIndex = 0; // Asegura que el select de idioma esté en la primera opción
+      actualizarNiveles(); // Esto limpiará y deshabilitará los selects dependientes
+      
+      // Resetear el texto del botón y el título
+      enviarButton.textContent = 'Enviar Inscripción';
+      if(tituloFormulario) tituloFormulario.textContent = 'Formulario de Inscripción';
+  }
+});
+
+
+// --- LÓGICA DEL BOTÓN ENVIAR/GUARDAR CAMBIOS ---
+enviarButton.addEventListener('click', function(event) {
+  event.preventDefault(); // Evita que el formulario se envíe y recargue la página.
+
+  // 1. VALIDACIÓN
+  const nombreInput = document.getElementById('nombre');
+  const apellidoInput = document.getElementById('apellido');
+  const telefonoInput = document.getElementById('telefono');
+  const emailInput = document.getElementById('email');
+
+  if (!nombreInput.value || !apellidoInput.value || !emailInput.value ||
+      !idiomaSelect.value || !nivelSelect.value || !modalidadSelect.value || !horarioSelect.value) {
+      alert("Por favor, complete todos los campos obligatorios.");
+      // Opcional: Resaltar campos vacíos con un borde rojo
+      [nombreInput, apellidoInput, emailInput, idiomaSelect, nivelSelect, modalidadSelect, horarioSelect].forEach(input => {
+          if (!input.value) {
+              input.style.borderColor = 'red';
+          } else {
+              input.style.borderColor = ''; // Restablecer a normal
+          }
+      });
+      return;
+  } else {
+      // Limpiar bordes rojos si todo está bien
+      [nombreInput, apellidoInput, emailInput, idiomaSelect, nivelSelect, modalidadSelect, horarioSelect].forEach(input => {
+          input.style.borderColor = '';
+      });
   }
 
+  // 2. CREAR EL OBJETO DE INSCRIPCIÓN CON LOS DATOS ACTUALES DEL FORMULARIO
+  let inscripcionActual = {
+      nombre: nombreInput.value,
+      apellido: apellidoInput.value,
+      telefono: telefonoInput.value,
+      email: emailInput.value,
+      idioma: idiomaSelect.value,
+      nivel: nivelSelect.value,
+      modalidad: modalidadSelect.value,
+      horario: horarioSelect.value,
+  };
+
+  // 3. RECUPERAR TODAS LAS INSCRIPCIONES GUARDADAS
+  let inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
+
+  // 4. DETERMINAR MODO: EDICIÓN O NUEVA INSCRIPCIÓN
+  const indiceEnEdicion = localStorage.getItem('indiceInscripcionEnEdicion');
+
+  if (indiceEnEdicion !== null) { // Si hay un índice, estamos editando
+      // MODO EDICIÓN: ACTUALIZAR LA INSCRIPCIÓN EXISTENTE
+      inscripciones[parseInt(indiceEnEdicion)] = inscripcionActual; // Reemplazar la inscripción antigua
+      
+      // Limpiar las claves temporales de edición DESPUÉS de usar el índice
+      localStorage.removeItem('inscripcionEnEdicion');
+      localStorage.removeItem('indiceInscripcionEnEdicion');
+      
+      alert("¡Inscripción actualizada con éxito! ✨");
+  } else {
+      // MODO NUEVA INSCRIPCIÓN: AGREGAR LA NUEVA INSCRIPCIÓN
+      inscripciones.push(inscripcionActual);
+      alert("¡Inscripción realizada con éxito! ✨");
+  }
+
+  // 5. GUARDAR EL ARRAY COMPLETO DE INSCRIPCIONES EN LOCALSTORAGE
   localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
 
-  // Redirigir a la página de inscripciones después de guardar
-  window.location.href = 'inscripcion.html';
+  // 6. LIMPIAR EL FORMULARIO Y REDIRIGIR A LA PÁGINA DE INSCRIPCIONES
+  formInscripcion.reset();
+  idiomaSelect.selectedIndex = 0; // Restablecer el select de idioma
+  actualizarNiveles(); // Esto limpia y deshabilita los selects dependientes
+  enviarButton.textContent = 'Enviar Inscripción'; // Volver al texto original del botón
+  if(tituloFormulario) tituloFormulario.textContent = 'Formulario de Inscripción'; // Volver al título original
 
-  // Limpiar el formulario DESPUÉS de guardar y redirigir
-  // Aunque la redirección ya lo "limpiará" al cargar la nueva página,
-  // es buena práctica si el usuario no redirigiera inmediatamente.
-  document.getElementById('nombre').value = '';
-  document.getElementById('apellido').value = '';
-  document.getElementById('telefono').value = '';
-  document.getElementById('email').value = '';
-  document.getElementById('idioma').selectedIndex = 0;
-  document.getElementById('nivel').selectedIndex = 0;
-  document.getElementById('modalidad').selectedIndex = 0;
-  document.getElementById('horario').selectedIndex = 0;
-
-  // alert("Inscripción realizada con éxito ✨");
+  window.location.href = 'inscripcion.html'; // Redirigir a la página de cards
 });
+
+

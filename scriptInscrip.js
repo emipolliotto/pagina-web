@@ -1,15 +1,14 @@
-let inscripciones = []
+// inscripciones.js
 
 // Objeto que mapea idiomas a URLs de banderas
 const banderas = {
-  'Ingles': 'https://flagcdn.com/w640/gb.png', // Reino Unido para Inglés
-  'Aleman': 'https://flagcdn.com/w640/de.png', // Alemania
-  'Italiano': 'https://flagcdn.com/w640/it.png', // Italia
-  'Frances': 'https://flagcdn.com/w640/fr.png', // Francia
-  'Chino': 'https://flagcdn.com/w640/cn.png', // China
-  'Japones': 'https://flagcdn.com/w640/jp.png', // Japón
-  'Portugues': 'https://flagcdn.com/w640/pt.png' // Portugal
-  // Agrega más idiomas y sus URLs de bandera según necesites
+  'Ingles': 'https://flagcdn.com/w640/gb.png',
+  'Aleman': 'https://flagcdn.com/w640/de.png',
+  'Italiano': 'https://flagcdn.com/w640/it.png',
+  'Frances': 'https://flagcdn.com/w640/fr.png',
+  'Chino': 'https://flagcdn.com/w640/cn.png',
+  'Japones': 'https://flagcdn.com/w640/jp.png',
+  'Portugues': 'https://flagcdn.com/w640/pt.png'
 };
 
 // Obtener el contenedor de las inscripciones
@@ -20,71 +19,64 @@ function mostrarInscripciones() {
   const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
   misInscripcionesDiv.innerHTML = ''; // Limpiar cualquier contenido previo
 
+  if (inscripciones.length === 0) {
+      misInscripcionesDiv.innerHTML = '<p class="text-center mt-5">No hay inscripciones realizadas aún.</p>';
+      return;
+  }
+
   inscripciones.forEach((inscripcion, index) => {
-    // Crear la card de la inscripción
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.classList.add('mb-3');
-    const urlBandera = banderas[inscripcion.idioma] || 'http://placehold.co/640x360?text=Bandera+No+Encontrada';
-    card.innerHTML = `
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.classList.add('mb-3');
+      card.style.width = '23rem'; // Para que la card tenga un ancho fijo
+      
+      const urlBandera = banderas[inscripcion.idioma] || 'http://placehold.co/640x360?text=Bandera+No+Encontrada';
 
-      <div class="card-idioma" style="width: 23rem;">
-      <img src="${urlBandera}" class="card-img-top" alt="Bandera de ${inscripcion.idioma}">
-      <div class="card-body">
-        <h5 class="card-title">Idioma: ${inscripcion.idioma}</h5>
-        <p class="card-text">Nivel: ${inscripcion.nivel}</p>
-        <p class="card-text">Modalidad: ${inscripcion.modalidad}</p>
-        <p class="card-text">Horario: ${inscripcion.horario}</p>
-        <button class="btn btn-warning" onclick="editarInscripcion(${index})">Editar</button>
-        <button class="btn btn-danger" onclick="eliminarInscripcion(${index})">Eliminar</button>
-      </div>
-    `;
+      card.innerHTML = `
+          <img src="${urlBandera}" class="card-img-top" alt="Bandera de ${inscripcion.idioma}">
+          <div class="card-body">
+              <h5 class="card-title">Idioma: ${inscripcion.idioma}</h5>
+              <p class="card-text">Nivel: ${inscripcion.nivel}</p>
+              <p class="card-text">Modalidad: ${inscripcion.modalidad}</p>
+              <p class="card-text">Horario: ${inscripcion.horario}</p>
+              <button class="btn btn-warning" onclick="editarInscripcion(${index})">Editar</button>
+              <button class="btn btn-danger" onclick="eliminarInscripcion(${index})">Eliminar</button>
+          </div>
+      `;
 
-    // Agregar la card al contenedor de inscripciones
-    misInscripcionesDiv.appendChild(card);
-    // inscripciones.push(card)
+      misInscripcionesDiv.appendChild(card);
   });
 }
 
-
-
-
-// Función para editar la inscripción
+// Función para editar la inscripción (prepara el localStorage y redirige)
 function editarInscripcion(index) {
   const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
-  const inscripcion = inscripciones[index];
+  const inscripcionAEditar = inscripciones[index]; // <-- Nombre de variable consistente
 
-  // 1. Guardar la inscripción que se va a editar en localStorage con una clave temporal
-  localStorage.setItem('inscripcionEnEdicion', JSON.stringify(inscripcionSeleccionada));
-  localStorage.setItem('indiceInscripcionEnEdicion', index); // También guarda el índice para saber cuál actualizar
+  if (inscripcionAEditar) {
+      // Guardar la inscripción y su índice en localStorage para que main.js los lea
+      localStorage.setItem('inscripcionEnEdicion', JSON.stringify(inscripcionAEditar));
+      localStorage.setItem('indiceInscripcionEnEdicion', index);
 
-  // 2. Redirigir a la página del formulario
-  window.location.href = 'index.html#formulario';
-
-  // Rellenar el formulario con los datos actuales de la inscripción
-  const formulario = document.getElementById('formulario');
-  formulario.nombre.value = inscripcion.nombre;
-  formulario.apellido.value = inscripcion.apellido;
-  formulario.telefono.value = inscripcion.telefono;
-  formulario.email.value = inscripcion.email;
-  formulario.modalidad.value = inscripcion.modalidad;
-  formulario.horario.value = inscripcion.horario;
-
-  // Eliminar la inscripción antigua
-  inscripciones.splice(index, 1);
-  localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
-
+      // Redirigir a la página del formulario (index.html)
+      window.location.href = 'index.html#formulario'; // No necesitas #formulario si el script de main.js ya maneja el DOMContentLoaded
+  } else {
+      console.error("Error: No se encontró la inscripción para editar en el índice:", index);
+      alert("Lo sentimos, no se pudo cargar la información para editar.");
+  }
 }
 
 // Función para eliminar la inscripción
 function eliminarInscripcion(index) {
-  const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
-  inscripciones.splice(index, 1);
-  localStorage.setItem('inscripciones', JSON.stringify(inscripciones));
+  // Pedir confirmación al usuario antes de eliminar
+  if (confirm("¿Estás seguro de que quieres eliminar esta inscripción?")) {
+      const inscripciones = JSON.parse(localStorage.getItem('inscripciones')) || [];
+      inscripciones.splice(index, 1); // Elimina 1 elemento en la posición 'index'
+      localStorage.setItem('inscripciones', JSON.stringify(inscripciones)); // Guarda el array actualizado
 
-  // Volver a cargar las inscripciones
-  mostrarInscripciones();
+      mostrarInscripciones(); // Vuelve a renderizar las cards
+  }
 }
 
-// Al cargar la página, mostrar las inscripciones guardadas
+// Al cargar la página de inscripciones, mostrar todas las cards
 window.onload = mostrarInscripciones;
