@@ -1,129 +1,297 @@
-html {
-  scroll-behavior: smooth;
-  height: 100%;
+/* ========================================================================== */
+/* VARIABLES CSS                              */
+/* ========================================================================== */
+:root {
+  --primary-color: #1531e6; /* Azul fuerte para botones principales */
+  --secondary-color: #0d6efd; /* Azul de Bootstrap, para bordes de timeline, etc. */
+  --accent-color: #28a745; /* Verde para botones de éxito */
+  --light-bg: #f8f9fa; /* Fondo claro general */
+  --dark-text: #333; /* Texto oscuro principal */
+  --medium-text: #666; /* Texto secundario/gris */
+  --card-border: #e0e0e0; /* Borde sutil para cards */
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.08);
+  --header-shadow: rgba(0, 0, 0, 0.08);
 }
 
+
+/* ========================================================================== */
+/* GENERAL                                   */
+/* ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  height: 100%; /* Asegura que el html ocupe toda la altura */
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Fuente más común y legible */
+  line-height: 1.6;
+  color: var(--dark-text);
+  background-color: #fff; /* Fondo blanco por defecto */
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark-text); /* Color por defecto para todos los títulos */
+  font-weight: 700; /* Negrita para títulos */
+}
+#este{
+  color:#fff;
+}
+a {
+  color: var(--primary-color); /* Color de enlaces por defecto */
+  text-decoration: none; /* Sin subrayado por defecto */
+  transition: color 0.3s ease; /* Transición suave al hover */
+}
+
+a:hover {
+  color: var(--secondary-color); /* Cambia de color al pasar el mouse */
+}
+
+/* ========================================================================== */
+/* HEADER                                    */
+/* ========================================================================== */
 header {
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Asegura que el header quede por encima de otros elementos */
-    width: 100%; /* Asegura que el header ocupe el ancho completo */
-    background-color: #fff; /* Fondo blanco, ajusta si lo necesitas */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra para mayor visibilidad */
-  }
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 10px var(--header-shadow);
+  padding: 10px 0; /* Un poco de padding vertical para el nav */
+}
 
-  .card-img-top {
-    width: 100%;
-    height: 250px;
-    object-fit: cover; /* recorta y ajusta sin deformar */
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
+/* Puedes añadir estilos específicos para tu navbar si no usas Bootstrap 100% por defecto */
+.navbar-brand img {
+  height: 40px; /* Ajusta el tamaño de tu logo si lo pones en el header */
+  width: auto;
+}
+
+.navbar-nav .nav-link {
+  color: var(--dark-text) !important; /* Asegura el color del texto de los links */
+  font-weight: 500;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+}
 
 
-  #cards-container {
-    padding: 25px; /* espacio interior general */
-  }
+/* ========================================================================== */
+/* HERO SECTION                                */
+/* ========================================================================== */
+/* No hay cambios aquí ya que el estilo está inline en el HTML */
+/* Si deseas moverlo al CSS, sería así:
+.hero-cursos {
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  // background-image: url('URL_DE_TU_IMAGEN_AQUI'); // Pon aquí la URL que elijas
+}
+.hero-cursos .overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+.hero-cursos .position-relative {
+  // Asegúrate de que el contenido esté centrado vertical y horizontalmente
+}
+*/
+.hero-cursos h1 {
+  font-size: 3.5em; /* Un poco más grande para el título principal */
+  text-shadow: 2px 2px 4px rgba(250, 244, 244, 0.88); /* Sombra para que se lea mejor sobre la imagen */
+}
 
-  #card {
-    margin: 20px; /* espacio alrededor de cada card */
-    width: 30%;
-  }
+.hero-cursos p.lead {
+  font-size: 1.5em;
+  max-width: 800px; /* Limita el ancho para mejor lectura */
+  margin: 0 auto 20px auto; /* Centra y añade margen inferior */
+  text-shadow: 1px 1px 3px rgba(224, 214, 214, 0.751);
+}
 
-  #btninscribirme{
-    background-color: #1531e6;
-    color: #e0e0e0;
-  }
+.botonesHero .btn {
+  padding: 12px 25px;
+  border-radius: 50px; /* Botones redondeados */
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin: 0 10px; /* Espacio entre botones */
+}
 
-/* --- ESTILOS GENERALES DE LA SECCIÓN FORMULARIO --- */
+.botonesHero .btn-light {
+  color: var(--primary-color);
+  background-color: #fff;
+  border: 2px solid #fff;
+}
+
+.botonesHero .btn-light:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+
+/* ========================================================================== */
+/* SECCIÓN IDIOMAS (CARDS)                       */
+/* ========================================================================== */
+/* Contenedor de las Cards de Idioma */
+#cards-container {
+  padding: 25px; /* Espacio interior general */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrar las cards */
+  gap: 30px; /* Más espacio entre cards para mejor lectura */
+  max-width: 1200px; /* Aumenta un poco el ancho máximo */
+  margin: 40px auto; /* Centra el contenedor y añade margen superior/inferior */
+  width: 100%;
+}
+
+/* Estilos para las cards individuales */
+.card { /* Usamos la clase general .card de Bootstrap */
+  margin: 0; /* Reiniciamos margen si se usa gap */
+  width: calc(33.33% - 20px);  /*3 cards por fila con gap */
+  width: 100%;
+  max-width: 380px; /* Asegura que la card no se estire demasiado en pantallas grandes */
+  background-color: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 10px; /* Ya estaba, solo para recordar */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto hover */
+  overflow: hidden; /* Asegura que la imagen y el borde redondeado se vean bien */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efecto "levantar" */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el mouse */
+}
+
+.card-img-top {
+  width: 100%;
+  height: 220px; /* Ligeramente más pequeña para un diseño más compacto */
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 20px; /* Padding interno del cuerpo de la card */
+  text-align: center; /* Centra el texto dentro de la card */
+}
+
+.card-title {
+  color: var(--dark-text);
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: var(--medium-text);
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+#btninscribirme {
+  background-color: var(--primary-color);
+  color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+#btninscribirme:hover {
+  background-color: var(--secondary-color);
+}
+
+/* ========================================================================== */
+/* SECCIÓN FORMULARIO                             */
+/* ========================================================================== */
 #formulario {
-  padding: 60px 0; /* Espacio superior e inferior */
-  background-color: #f8f9fa; /* Un color de fondo suave para toda la sección */
+  padding: 80px 0; /* Más espacio superior e inferior */
+  background-color: var(--light-bg);
 }
 
 #formulario .contenido {
-  display: flex; 
-  justify-content: center; /* Centrar el contenido horizontalmente si hay espacio extra */
-  align-items: flex-start; /* Alinear los elementos al inicio verticalmente (arriba) */
-  gap: 50px; /* Espacio generoso entre la columna de bienvenida y la del formulario */
-  max-width: 1200px; /* Ancho máximo para el contenedor del formulario */
-  margin: 0 auto; /* Centrar el contenedor en la página */
-  padding: 0 25px; /* Padding lateral para que no se pegue a los bordes */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrar verticalmente ambos lados */
+  gap: 60px; /* Más espacio entre columnas */
+  max-width: 1300px; /* Aumentar el ancho máximo del contenedor */
+  margin: 0 auto;
+  padding: 0 30px; /* Padding lateral */
 }
 
-/* --- ESTILOS DE LA COLUMNA IZQUIERDA (Bienvenida e Imagen) --- */
 #formulario .izquierda {
-  flex: 2; /* Ocupa 2 partes del espacio disponible */
-  padding: 30px 0; /* Padding vertical, sin horizontal para que se "funda" */
-  display: flex; /* Para organizar el contenido interno (h2, p, img) */
+  flex: 1.5; /* Ajuste para un balance visual mejor (más peso al formulario) */
+  padding: 30px 0;
+  display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Alinear al inicio, ya que el formulario es más alto */
-  align-items: center; /* Centra el contenido horizontalmente (texto e imagen) */
+  justify-content: center; /* Centrar el contenido de la izquierda */
+  align-items: center;
   text-align: center;
 }
 
 #formulario .izquierda h2 {
-  color: #333;
+  color: var(--dark-text);
   margin-bottom: 15px;
-  font-size: 2.2em;
+  font-size: 2.5em; /* Un poco más grande */
 }
 
 #formulario .izquierda p {
-  color: #666;
+  color: var(--medium-text);
   margin-bottom: 30px;
-  line-height: 1.6;
-  font-size: 1.1em;
+  line-height: 1.7; /* Mejor legibilidad */
+  font-size: 1.15em; /* Un poco más grande */
 }
 
 #formulario .izquierda img {
-  max-width: 100%; /* Asegura que la imagen no se desborde */
-  height: auto; /* Mantiene la proporción */
-  border-radius: 8px; /* Borde redondeado para la imagen */
+  max-width: 90%; /* Ajuste para que no quede tan pegada a los bordes */
+  height: auto;
+  border-radius: 12px; /* Más redondeado */
+  box-shadow: 0 5px 15px var(--shadow-light); /* Sombra a la imagen */
 }
 
-/* --- ESTILOS DE LA COLUMNA DERECHA (TODO EL FORMULARIO) --- */
 #formulario .derecha {
-  flex: 3; /* Ocupa 3 partes del espacio (el formulario será más ancho) */
-  padding: 40px; /* Espacio interno dentro del recuadro del formulario */
-  background-color: #fff; /* Fondo blanco */
-  border-radius: 8px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra para el recuadro */
-  border: 1px solid #e0e0e0; /* Borde sutil */
+  flex: 2; /* Ocupa más espacio */
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 12px; /* Más redondeado */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+  border: 1px solid var(--card-border);
 }
 
 #formulario .derecha h2 {
-  color: #007bff; /* Título del formulario */
-  margin-bottom: 30px;
+  color: var(--primary-color); /* Color primario para el título del formulario */
+  margin-bottom: 35px; /* Más espacio */
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2.8em;
+  font-weight: 700;
 }
 
-
-
-/* --- ESTILOS PARA CADA CAMPO DE FORMULARIO (form-group) --- */
+/* Estilos para cada campo de formulario */
 .form-group {
-  margin-bottom: 20px; /* Espacio entre cada campo (label + input/select) */
+  margin-bottom: 25px; /* Más espacio entre campos */
 }
 
 .form-group label {
-  display: block; /* La etiqueta ocupa su propia línea */
-  margin-bottom: 8px;
+  margin-bottom: 10px; /* Más espacio */
   font-weight: bold;
-  color: #333;
-  font-size: 1.05em;
+  color: var(--dark-text);
+  font-size: 1.1em;
 }
 
 .form-group input[type="text"],
 .form-group input[type="tel"],
 .form-group input[type="email"],
 .form-group select {
-  width: 100%; /* Ocupa todo el ancho disponible de su columna */
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1em;
-  color: #555;
-  background-color: #fcfcfc;
+  width: 100%;
+  padding: 14px 18px; /* Más padding */
+  border: 1px solid var(--card-border);
+  border-radius: 8px; /* Más redondeado */
+  font-size: 1.05em;
+  color: var(--dark-text);
+  background-color: #fff;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -131,306 +299,465 @@ header {
 .form-group input[type="tel"]:focus,
 .form-group input[type="email"]:focus,
 .form-group select:focus {
-  border-color: #007bff;
+  border-color: var(--secondary-color);
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra de foco de Bootstrap */
 }
 
 .form-group select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"><path d="M7 10l5 5 5-5z"/></svg>');
   background-repeat: no-repeat;
   background-position: right 15px center;
   background-size: 18px;
-  cursor: pointer;
 }
 
-/* --- ESTILO DEL BOTÓN DE ENVÍO --- */
+/* Estilo del botón de envío */
 #enviar {
-  display: block; /* Para que ocupe todo el ancho */
   width: 100%;
-  padding: 15px 25px;
-  background-color: #28a745;
+  padding: 16px 25px; /* Más padding */
+  background-color: var(--accent-color); /* Usamos la variable de acento */
   color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 1.1em;
+  border-radius: 8px; /* Más redondeado */
+  font-size: 1.2em; /* Más grande */
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: 30px; /* Espacio superior para el botón */
+  margin-top: 40px; /* Más espacio superior */
 }
 
 #enviar:hover {
-  background-color: #218838;
-  transform: translateY(-2px);
+  background-color: #218838; /* Color un poco más oscuro al hover */
+  transform: translateY(-3px); /* Efecto más pronunciado */
 }
 
 #enviar:active {
   transform: translateY(0);
 }
 
-/* --- MEDIA QUERIES PARA RESPONSIVE (Ajustes para pantallas más pequeñas) --- */
-@media (max-width: 992px) {
-  #formulario .contenido {
-      flex-direction: column; /* Apilar las columnas principales (bienvenida y formulario) */
-      align-items: center;
-      gap: 30px;
-  }
-
-  #formulario .izquierda,
-  #formulario .derecha {
-      flex: none; /* Resetear flex para que ocupen todo el ancho */
-      width: 100%; /* Ocupan el 100% del ancho del contenedor */
-      max-width: 600px; /* Limitar el ancho máximo para evitar estiramientos */
-  }
-
-  #formulario .izquierda {
-      padding: 25px 0; /* Padding vertical, sin lateral */
-  }
-
-  #formulario .derecha {
-      padding: 30px;
-  }
-
-  .form-container {
-      flex-direction: column; /* Apilar las columnas de campos en pantallas medianas */
-      gap: 15px; /* Reducir el espacio entre campos apilados */
-  }
-
-  .form-container .column {
-      min-width: unset; /* Reiniciar min-width */
-      width: 100%; /* Ocupan todo el ancho */
-  }
-
-  .form-group {
-      margin-bottom: 15px; /* Reducir espacio entre campos apilados */
-  }
-}
-
-@media (max-width: 576px) {
-  #formulario .contenido {
-      padding: 0 15px; /* Reducir el padding lateral en móviles */
-  }
-
-  #formulario .izquierda h2 {
-      font-size: 1.8em;
-  }
-
-  #formulario .derecha h2 {
-      font-size: 2em;
-  }
-
-  #formulario .izquierda {
-      padding: 15px 0;
-  }
-
-  #formulario .derecha {
-      padding: 25px;
-  }
-}
-
+/* Layout de dos columnas para campos de formulario */
 .form-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 30px; /* Espacio entre columnas de campos */
 }
 
+/* ========================================================================== */
+/* SECCIÓN INSCRIPCIONES                           */
+/* ========================================================================== */
+/* Nota: La sección de "Mis Inscripciones" (inscripcion.html) usa .cards-container y .card-idioma
+   Estos estilos ya estaban definidos y son consistentes.
+   Asegúrate de que tus cards en index.html usan .card y las de inscripcion.html usan .card-idioma o un nombre similar
+   para evitar conflictos, o unifica el estilo si son iguales.
+   Si ambas usan 'card', se aplicarán los estilos de '.card' que definí arriba.
+   Aquí se asume que 'mis inscripciones' es un estilo específico.
+*/
+.cards-container-inscripciones { /* Nuevo nombre para el contenedor de cards de inscripciones */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px; /* Espacio entre cards */
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 40px auto;
 
-/* SECCION INSCRIPCION */
-h2 {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  color: #333;
 }
 
-form {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 15px;
+.card-idioma { /* Estilo específico para las cards en la página de inscripciones */
   background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 100px 100px rgba(0, 0, 0, 0.1);
-}
-
-
-/* SECCION SOBRE NOSOTROS */
-
-#sobreNosotros{
-  margin-top: 50px;
-  margin-bottom: 50;
-}
-
-#nuestraHistoria{
-  margin-top: 50px;
-  margin-bottom: 50;
-}
-
-#nuestraHistoria .inscribete{
-  border-color: #28a745;
-}
-
-  .timeline {
-    list-style: none;
-    padding-left: 0;
-    position: relative;
-  }
-  .timeline li {
-    padding: 1rem 0;
-    border-left: 4px solid #0d6efd;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  .timeline li::before {
-    content: '';
-    position: absolute;
-    top: 1rem;
-    left: -0.6rem;
-    width: 1rem;
-    height: 1rem;
-    background: #0d6efd;
-    border-radius: 50%;
-  }
-  
-
-  @media screen and (max-width: 600px) {
-    /* body {
-        background-color: lightblue;
-    }
-
-    #imagenCabecera {
-        display: none
-    }
-    #Cabecera{
-        color: red;
-        font-size: 20px;
-    } */
-}
-
-@media screen and (min-width: 601px) {
-    /* body {
-        background-color: lightgreen;
-    }
-
-    #imagenCabecera {
-        display: inline
-    }
-        #Cabecera{
-        color: yellow;
-        font-size: 50px;
-    } */
-}
-
-
-
-
-/* seccion mis inscripciones */
-
-/* Contenedor de las Cards de Idioma */
-.cards-container {
-  display: flex; /* Habilita Flexbox: los ítems se alinearán en una fila por defecto */
-  flex-wrap: wrap; /* Permite que las cards salten a la siguiente fila si no hay espacio */
-  justify-content: flex-start; /* Alinea las cards al inicio de la fila */
-  /* justify-content: center;  <-- Opcional: si quieres que las cards se centren horizontalmente */
-  /* justify-content: space-around; <-- Opcional: distribuye el espacio alrededor de los ítems */
-  /* justify-content: space-between; <-- Opcional: distribuye el espacio entre los ítems (bordes pegados) */
-
-  gap: 20px; /* ¡ESTO CREA EL ESPACIO ENTRE LAS CARDS! */
-  /* Puedes ajustar el valor (ej. 15px, 30px) según lo que te guste más */
-
-  padding: 20px 0; /* Un poco de espacio vertical alrededor del contenedor de cards */
-  max-width: 1200px; /* Opcional: Limita el ancho del contenedor para que no se estire demasiado */
-  margin: 0 auto; /* Opcional: Centra el contenedor en la página */
-}
-
-/* Estilos básicos para las cards individuales (puedes adaptarlos) */
-.card-idioma {
-  background-color: #ffffff; /* Fondo blanco */
-  border: 1px solid #e0e0e0; /* Borde sutil */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-medium);
   padding: 20px;
-  width: calc(33.33% - 20px); /* Ejemplo: 3 cards por fila con gap de 20px */
-  /* Si quieres 2 cards por fila: width: calc(50% - 10px); (ajusta el -10px según el gap) */
-  /* min-width: 280px; /* Asegura que la card no se haga demasiado pequeña */
-  box-sizing: border-box; /* Incluye padding y border en el width */
+  width: calc(33.33% - 25px); /* 3 cards por fila */
+  box-sizing: border-box;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-idioma h3 {
-  color: #007bff;
+.card-idioma:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card-idioma .card-img-top { /* Imagen de la bandera */
+  width: 100%;
+  height: 150px; /* Altura de la bandera */
+  object-fit: cover;
+  border-radius: 4px; /* Ligeramente menos redondeado para la bandera */
+  margin-bottom: 15px;
+}
+
+.card-idioma .card-title {
+  font-size: 1.3em;
+  color: var(--primary-color);
   margin-bottom: 10px;
-  font-size: 1.4em;
 }
 
-.card-idioma p {
-  color: #555;
+.card-idioma .card-text {
+  font-size: 0.95em;
+  color: var(--medium-text);
+  margin-bottom: 8px;
+}
+
+.card-idioma .btn {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.card-idioma .btn-warning {
+  background-color: #ffc107; /* Color de Bootstrap */
+  border-color: #ffc107;
+  color: #212529; /* Texto oscuro */
+}
+.card-idioma .btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+.card-idioma .btn-danger {
+  background-color: #dc3545; /* Color de Bootstrap */
+  border-color: #dc3545;
+  color: #fff;
+}
+.card-idioma .btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+
+/* ========================================================================== */
+/* SECCIÓN SOBRE NOSOTROS                         */
+/* ========================================================================== */
+#sobreNosotros, #nuestraHistoria {
+  padding: 60px 0; /* Más padding para separar secciones */
+  margin-top: 0; /* Quitar márgenes de las secciones */
+  margin-bottom: 0;
+}
+
+#nuestraHistoria .inscribete {
+  border-color: var(--accent-color); /* Usar variable */
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+}
+.timeline li {
+  padding: 1.2rem 0; /* Más espacio */
+  border-left: 4px solid var(--secondary-color); /* Usar variable */
+  padding-left: 1.8rem; /* Más padding */
+  position: relative;
+}
+.timeline li::before {
+  content: '';
+  position: absolute;
+  top: 1.2rem; /* Ajustar posición del círculo */
+  left: -0.7rem; /* Ajustar posición del círculo */
+  width: 1.2rem; /* Tamaño del círculo */
+  height: 1.2rem; /* Tamaño del círculo */
+  background: var(--secondary-color); /* Usar variable */
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #e0e0e0; /* Un poco de resplandor para el círculo */
+}
+.timeline li h3 {
+  font-size: 1.3em;
+  color: var(--primary-color); /* Color del título en timeline */
   margin-bottom: 5px;
 }
-
-/* Media Queries para Responsividad (ejemplo) */
-@media (max-width: 992px) {
-  .card-idioma {
-      width: calc(50% - 15px); /* 2 cards por fila en pantallas medianas, ajusta el gap */
-  }
-}
-
-@media (max-width: 576px) {
-  .card-idioma {
-      width: 100%; /* 1 card por fila en pantallas pequeñas */
-  }
-  .cards-container {
-      padding: 15px; /* Ajusta padding en móviles */
-  }
+.timeline li p {
+  font-size: 1em;
+  color: var(--medium-text);
 }
 
 
+/* ========================================================================== */
+/* FOOTER                                  */
+/* ========================================================================== */
+footer {
+  background-color: var(--light-bg) !important; /* Asegura el color de fondo */
+  color: var(--dark-text) !important; /* Asegura el color del texto */
+  padding: 40px 0; /* Más padding vertical */
+  margin-top: 60px; /* Más margen superior */
+  box-shadow: 0 -2px 10px var(--shadow-light); /* Sombra hacia arriba */
+}
 
-/* Estilos para el footer inferior de copyright */
+footer h5 {
+  color: var(--primary-color); /* Títulos del footer en color primario */
+  margin-bottom: 20px; /* Más espacio debajo del título */
+  font-weight: 700;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 10px; /* Espacio entre items de lista */
+  font-size: 0.95em;
+}
+
+footer ul li a {
+  color: var(--medium-text); /* Color de los enlaces en el footer */
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: var(--primary-color);
+}
+
+footer .ratio {
+  border-radius: 8px; /* Bordes redondeados para el mapa */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra para el mapa */
+}
+
+/* Footer Bottom (Copyright) */
 .footer-bottom {
-  background-color: #f3f5f6; /* Un verde oscuro, como el de la imagen de ejemplo */
-  color: rgb(12, 6, 6); /* Texto blanco */
-  padding: 20px 0; /* Espacio interno superior e inferior */
-  text-align: center; /* Centrar el texto */
-  font-size: 0.9em; /* Tamaño de fuente ligeramente más pequeño */
-  margin-top: 0; /* Asegurarse de que no haya margen superior si el footer de arriba tiene margin-bottom */
-  width: 100%; /* Ocupar todo el ancho */
-  box-sizing: border-box; /* Incluir padding en el width total */
-}
-
-.footer-bottom .container {
-  /* Si usas la clase 'container' de Bootstrap, ya manejará el ancho y centrado.
-     Si no usas Bootstrap, o quieres un ancho específico para este footer,
-     puedes añadir aquí: */
-     max-width: 1200px;
-     margin: 0 auto;
-  
+  background-color: #f3f5f6; /* Color de fondo */
+  color: var(--dark-text); /* Color de texto */
+  padding: 15px 0; /* Un poco menos de padding vertical */
+  font-size: 0.85em; /* Tamaño de fuente más pequeño */
+  margin-top: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-bottom p {
-  margin-bottom: 0; /* Eliminar el margen inferior predeterminado de los párrafos */
+  margin-bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px; /* Espacio entre el texto y el ícono si lo añades */
+  gap: 8px; /* Más espacio para el ícono */
 }
 
-/* --- NUEVO CÓDIGO PARA EL LIBRO --- */
 .footer-bottom p::after {
-  content: '\1F4DA'; /* Código Unicode para un libro (Stack of Books) */
-  font-size: 1.2em; /* Puedes ajustar el tamaño si lo necesitas */
-  margin-left: 8px; /* Un poco más de espacio a la izquierda para separarlo del texto */
-  vertical-align: middle; /* Ayuda a alinear el ícono con el texto */
+  content: '\1F4DA'; /* Código Unicode para un libro */
+  font-size: 1.3em; /* Ajusta el tamaño */
+  line-height: 1; /* Asegura buena alineación */
 }
 
-/* Si usas Font Awesome o similar, usarías así: */
-.footer-bottom p .fa-leaf {
-  color: #fff;
-  margin-left: 5px;
-  font-size: 1.1em;
-} 
+/* ========================================================================== */
+/* MEDIA QUERIES                                */
+/* ========================================================================== */
+
+/* Dispositivos muy pequeños (menos de 576px, por ejemplo, smartphones en vertical) */
+@media (max-width: 575.98px) {
+  .hero-cursos h1 {
+    font-size: 2.5em;
+  }
+  .hero-cursos p.lead {
+    font-size: 1.1em;
+    padding: 0 15px;
+  }
+  .botonesHero .btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+
+  #cards-container {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+  .card {
+    width: 100%; /* Una card por fila en móviles */
+    max-width: none; /* Sin límite de ancho */
+  }
+
+  #formulario .contenido {
+    flex-direction: column; /* Apilar en vertical */
+    gap: 30px;
+    padding: 0 15px;
+  }
+  #formulario .izquierda,
+  #formulario .derecha {
+    width: 100%;
+    max-width: none;
+    padding: 20px; /* Reducir padding en el formulario */
+  }
+  #formulario .izquierda h2 {
+    font-size: 1.8em;
+  }
+  #formulario .derecha h2 {
+    font-size: 2em;
+  }
+  .form-container {
+    grid-template-columns: 1fr; /* Una columna para los campos */
+    gap: 15px;
+  }
+  .form-group input, .form-group select {
+    padding: 10px 12px; /* Reducir padding de inputs */
+  }
+  #enviar {
+    padding: 12px 20px; /* Reducir padding del botón */
+    font-size: 1em;
+  }
+
+  /* Inscripciones page */
+  .cards-container-inscripciones {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+  .card-idioma {
+    width: 100%; /* Una card por fila */
+  }
+
+  /* Footer */
+  footer .row {
+    flex-direction: column; /* Apilar columnas del footer */
+    text-align: center;
+  }
+  footer .col-md-4 {
+    margin-bottom: 30px; /* Espacio entre secciones apiladas */
+    width: 100%; /* Asegura que ocupen todo el ancho */
+  }
+  footer .col-md-4:last-child {
+    margin-bottom: 0; /* Quitar margen inferior del último elemento */
+  }
+  footer ul {
+    margin-bottom: 20px; /* Espacio debajo de listas en móvil */
+  }
+}
+
+/* Dispositivos pequeños (smartphones en horizontal, tablets pequeñas) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hero-cursos h1 {
+    font-size: 3em;
+  }
+  .hero-cursos p.lead {
+    font-size: 1.3em;
+  }
+
+  #cards-container {
+    gap: 25px;
+  }
+  .card {
+    width: calc(50% - 25px); /* Dos cards por fila */
+    max-width: 1200px;
+  }
+
+  #formulario .contenido {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  #formulario .izquierda,
+  #formulario .derecha {
+    width: 100%;
+    max-width: 600px; /* Limitar el ancho */
+    padding: 30px;
+  }
+  .form-container {
+    grid-template-columns: 1fr; /* Una columna para los campos en este rango también */
+    gap: 20px;
+  }
+
+  /* Inscripciones page */
+  .cards-container-inscripciones {
+    gap: 25px;
+  }
+  .card-idioma {
+    width: calc(50% - 25px); /* 2 cards por fila */
+  }
+
+  /* Footer */
+  footer .row {
+    flex-direction: column; /* Se siguen apilando */
+    text-align: center;
+  }
+  footer .col-md-4 {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+}
+
+/* Dispositivos medianos (tablets en vertical, laptops pequeñas) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-cursos h1 {
+    font-size: 3.5em;
+  }
+  .hero-cursos p.lead {
+    font-size: 1.4em;
+  }
+
+  #cards-container {
+    gap: 20px;
+    max-width: 1200px;
+  }
+  .card {
+    width: calc(50% - 20px); /* Dos cards por fila */
+    width: 100%;
+  }
+
+  #formulario .contenido {
+    flex-direction: row; /* Volvemos a las dos columnas */
+    gap: 40px;
+    padding: 0 25px;
+  }
+  #formulario .izquierda {
+    flex: 1; /* Ajustar flex-grow */
+    padding: 20px;
+  }
+  #formulario .derecha {
+    flex: 2; /* Ajustar flex-grow */
+    padding: 40px;
+  }
+  .form-container {
+    grid-template-columns: 1fr 1fr; /* Volvemos a dos columnas para los campos */
+    gap: 20px;
+  }
+
+  /* Inscripciones page */
+  .cards-container-inscripciones {
+    gap: 20px;
+  }
+  .card-idioma {
+    width: calc(50% - 20px); /* 2 cards por fila */
+  }
+  
+  /* Footer */
+  footer .row {
+    flex-direction: row; /* Vuelven a ser columnas */
+    text-align: left; /* Restaura el texto a la izquierda */
+  }
+  footer .col-md-4 {
+    margin-bottom: 0;
+    width: 33.33%; /* Vuelven a ser 33.33% */
+  }
+  footer .col-md-4:not(:last-child) { /* Margen entre columnas del footer */
+    padding-right: 15px; /* Pequeño ajuste de padding */
+  }
+}
+
+/* Dispositivos grandes y extra grandes (laptops grandes, monitores) */
+@media (min-width: 992px) {
+  /* Estilos para desktop que ya están definidos o que se quieran ajustar específicamente */
+  #cards-container {
+     justify-content: space-around; /*Distribuir uniformemente las cards si no son un número exacto  */
+     max-width: 1200px;
+  }
+  .card {
+    width: calc(33.33% - 20px); /* Vuelven a 3 cards por fila */
+    width: 100%;
+  }
+
+  #formulario .contenido {
+    /* Mantienen los estilos de desktop ya definidos */
+  }
+  .form-container {
+    /* Mantienen los estilos de desktop ya definidos */
+  }
+
+  /* Inscripciones page */
+  .cards-container-inscripciones {
+    justify-content: flex-start; /* O como prefieras en desktop */
+  }
+  .card-idioma {
+    width: calc(33.33% - 25px); /* 3 cards por fila */
+    width: 100%;
+  }
+}
