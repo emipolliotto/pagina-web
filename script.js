@@ -157,6 +157,45 @@ const nivelesPorIdioma = {
   ]
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+    const btnVerMas = document.getElementById('btn-ver-mas');
+    const hiddenLanguages = document.querySelectorAll('.hidden-language'); // Selecciona TODAS las cards con esa clase
+
+    if (btnVerMas && hiddenLanguages.length > 0) { // Asegurarse de que los elementos existen y hay cards para ocultar/mostrar
+        btnVerMas.addEventListener('click', function() {
+            let areHidden = false; // Asumimos que están ocultas al principio
+
+            // Comprobamos el estado actual del primer elemento oculto para saber si están visibles
+            if (hiddenLanguages[0].style.display === 'none' || hiddenLanguages[0].style.display === '') {
+                areHidden = true; // Si el primero está oculto o no tiene display explícito, entonces todos lo están
+            }
+
+            hiddenLanguages.forEach(function(card) {
+                if (areHidden) {
+                    card.style.display = 'flex'; // O el display original que tenga .card si no es flex
+                    // Si tus cards tienen display: block, usa 'block'. Si usan flexbox internamente y el contenedor usa flex, 'flex' es apropiado.
+                    // Si el contenedor #cards-container usa grid, entonces las cards deberían ser 'block' o su display por defecto
+                    // dado que grid las posiciona. Usa el que te funcione para que se vean bien dentro del grid/flex.
+                    // Probablemente `block` o `flex` es el más común aquí. Si las cards son contenedores flex, entonces 'flex' es correcto.
+                } else {
+                    card.style.display = 'none';
+                    window.location.href = '#idiomas';
+                }
+            });
+
+            // Cambiar el texto del botón
+            if (areHidden) {
+                btnVerMas.textContent = 'Ver menos';
+            } else {
+                btnVerMas.textContent = 'Ver más';
+            }
+        });
+    } else if (btnVerMas) {
+        // Si no hay idiomas para ocultar (menos de 3 o 4 cards en total), oculta el botón "Ver más"
+        btnVerMas.style.display = 'none';
+    }
+});
+
 // Obtener referencias a los elementos del formulario
 const idiomaSelect = document.getElementById('idioma');
 const nivelSelect = document.getElementById('nivel');

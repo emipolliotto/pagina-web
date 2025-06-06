@@ -126,13 +126,19 @@ header {
 #cards-container {
   padding: 25px; /* Espacio interior general */
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center; /* Centrar las cards */
   gap: 30px; /* Más espacio entre cards para mejor lectura */
   max-width: 1200px; /* Aumenta un poco el ancho máximo */
   margin: 40px auto; /* Centra el contenedor y añade margen superior/inferior */
   width: 100%;
-  margin-left: 20px;
+  /* margin-left: 20px; */
+}
+
+#card{
+  width: 100%;
+  width: calc(33.33% - 20px);
+  justify-content: center;
 }
 
 /* Estilos para las cards individuales */
@@ -190,6 +196,37 @@ header {
 }
 
 #btninscribirme:hover {
+  background-color: var(--secondary-color);
+}
+
+
+
+
+
+/* Oculta las cards con la clase 'hidden-language' por defecto */
+.hidden-language {
+  display: none;
+}
+
+/* Mantén los estilos del botón "Ver más" si los tienes */
+.ver-mas-container {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
   background-color: var(--secondary-color);
 }
 
@@ -540,7 +577,7 @@ footer .ratio {
 /* ========================================================================== */
 
 /* Dispositivos muy pequeños (menos de 576px, por ejemplo, smartphones en vertical) */
-@media (max-width: 575.98px) {
+@media (max-width: 740px) {
   .hero-cursos h1 {
     font-size: 2.5em;
   }
@@ -556,10 +593,11 @@ footer .ratio {
   #cards-container {
     padding: 20px 15px;
     gap: 20px;
+    justify-content: center;
   }
-  .card {
-    width: 100%; /* Una card por fila en móviles */
-    max-width: none; /* Sin límite de ancho */
+  #card {
+    width: 100%; /*Una card por fila en móviles */
+    max-width: none;  /*Sin límite de ancho */
   }
 
   #formulario .contenido {
@@ -617,60 +655,9 @@ footer .ratio {
   }
 }
 
-/* Dispositivos pequeños (smartphones en horizontal, tablets pequeñas) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .hero-cursos h1 {
-    font-size: 3em;
-  }
-  .hero-cursos p.lead {
-    font-size: 1.3em;
-  }
-
-  #cards-container {
-    gap: 25px;
-  }
-  .card {
-    width: calc(50% - 25px); /* Dos cards por fila */
-    max-width: 1200px;
-  }
-
-  #formulario .contenido {
-    flex-direction: column;
-    gap: 40px;
-    padding: 0 20px;
-  }
-  #formulario .izquierda,
-  #formulario .derecha {
-    width: 100%;
-    max-width: 600px; /* Limitar el ancho */
-    padding: 30px;
-  }
-  .form-container {
-    grid-template-columns: 1fr; /* Una columna para los campos en este rango también */
-    gap: 20px;
-  }
-
-  /* Inscripciones page */
-  .cards-container-inscripciones {
-    gap: 25px;
-  }
-  .card-idioma {
-    width: calc(50% - 25px); /* 2 cards por fila */
-  }
-
-  /* Footer */
-  footer .row {
-    flex-direction: column; /* Se siguen apilando */
-    text-align: center;
-  }
-  footer .col-md-4 {
-    margin-bottom: 30px;
-    width: 100%;
-  }
-}
 
 /* Dispositivos medianos (tablets en vertical, laptops pequeñas) */
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 741px) and (max-width: 991.98px) {
   .hero-cursos h1 {
     font-size: 3.5em;
   }
@@ -682,9 +669,9 @@ footer .ratio {
     gap: 20px;
     max-width: 1200px;
   }
-  .card {
+  #card {
     width: calc(50% - 20px); /* Dos cards por fila */
-    width: 100%;
+    /* width: 100%; */
   }
 
   #formulario .contenido {
@@ -734,9 +721,9 @@ footer .ratio {
      justify-content: space-around; /*Distribuir uniformemente las cards si no son un número exacto  */
      max-width: 1200px;
   }
-  .card {
+  #card {
     width: calc(33.33% - 20px); /* Vuelven a 3 cards por fila */
-    width: 100%;
+    /* width: 100%; */
   }
 
   #formulario .contenido {
