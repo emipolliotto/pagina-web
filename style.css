@@ -6,7 +6,7 @@
   --secondary-color: #0d6efd; /* Azul de Bootstrap, para bordes de timeline, etc. */
   --accent-color: #28a745; /* Verde para botones de éxito */
   --light-bg: #f8f9fa; /* Fondo claro general */
-  --dark-text: #333; /* Texto oscuro principal */
+  --dark-text: #333;  /*Texto oscuro principal */
   --medium-text: #666; /* Texto secundario/gris */
   --card-border: #e0e0e0; /* Borde sutil para cards */
   --shadow-light: rgba(0, 0, 0, 0.1);
@@ -39,6 +39,12 @@ h1, h2, h3, h4, h5, h6 {
 #este{
   color:#fff;
 }
+
+#aca{
+  text-align: center;
+  margin-top: 30px;
+}
+
 a {
   color: var(--primary-color); /* Color de enlaces por defecto */
   text-decoration: none; /* Sin subrayado por defecto */
@@ -80,24 +86,6 @@ header {
 }
 
 
-/* ========================================================================== */
-/* HERO SECTION                                */
-/* ========================================================================== */
-/* No hay cambios aquí ya que el estilo está inline en el HTML */
-/* Si deseas moverlo al CSS, sería así:
-.hero-cursos {
-  background-size: cover;
-  background-position: center;
-  height: 60vh;
-  // background-image: url('URL_DE_TU_IMAGEN_AQUI'); // Pon aquí la URL que elijas
-}
-.hero-cursos .overlay {
-  background: rgba(0, 0, 0, 0.6);
-}
-.hero-cursos .position-relative {
-  // Asegúrate de que el contenido esté centrado vertical y horizontalmente
-}
-*/
 .hero-cursos h1 {
   font-size: 3.5em; /* Un poco más grande para el título principal */
   text-shadow: 2px 2px 4px rgba(250, 244, 244, 0.88); /* Sombra para que se lea mejor sobre la imagen */
@@ -144,6 +132,7 @@ header {
   max-width: 1200px; /* Aumenta un poco el ancho máximo */
   margin: 40px auto; /* Centra el contenedor y añade margen superior/inferior */
   width: 100%;
+  margin-left: 20px;
 }
 
 /* Estilos para las cards individuales */
@@ -262,7 +251,7 @@ header {
 }
 
 #formulario .derecha h2 {
-  color: var(--primary-color); /* Color primario para el título del formulario */
+  color: black; /* Color primario para el título del formulario */
   margin-bottom: 35px; /* Más espacio */
   text-align: center;
   font-size: 2.8em;
@@ -360,6 +349,7 @@ header {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 40px auto;
+  margin-left: 50px;
 
 }
 
@@ -428,6 +418,10 @@ header {
 }
 
 
+#testimonio-card{
+  display: flex;
+}
+
 /* ========================================================================== */
 /* SECCIÓN SOBRE NOSOTROS                         */
 /* ========================================================================== */
@@ -487,7 +481,7 @@ footer {
 }
 
 footer h5 {
-  color: var(--primary-color); /* Títulos del footer en color primario */
+  color: black; /* Títulos del footer en color primario */
   margin-bottom: 20px; /* Más espacio debajo del título */
   font-weight: 700;
 }

@@ -1,4 +1,3 @@
-// inscripciones.js
 
 // Objeto que mapea idiomas a URLs de banderas
 const banderas = {
