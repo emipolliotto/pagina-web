@@ -7,7 +7,8 @@ const banderas = {
   'Frances': 'https://flagcdn.com/w640/fr.png',
   'Chino': 'https://flagcdn.com/w640/cn.png',
   'Japones': 'https://flagcdn.com/w640/jp.png',
-  'Portugues': 'https://flagcdn.com/w640/pt.png'
+  'Portugues': 'https://flagcdn.com/w640/pt.png',
+  'Español':'https://flagcdn.com/w640/es.png'
 };
 
 // Obtener el contenedor de las inscripciones

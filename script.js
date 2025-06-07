@@ -154,9 +154,33 @@ const nivelesPorIdioma = {
           modalidades: ["Virtual", 'Presencial'],
           horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
       }
-  ]
+  ],
+  español: [
+    {
+        nombre: "A1",
+        modalidades: [ "Presencial"],
+        horarios: ["Lunes y Miercoles 18:00", "Miercoles y Viernes 10:00"]
+    },
+    {
+        nombre: "A2",
+        modalidades: ["Virtual", "Presencial"],
+        horarios: ["Martes y Jueves 17:00", "Lunes y Miercoles 12:00"]
+    },
+    {
+        nombre: "B1",
+        modalidades: ["Virtual"],
+        horarios: ["Martes de 17:00 a 19:00", "Jueves de 10:00 a 12:00"]
+    },
+    {
+        nombre: "B2",
+        modalidades: ["Virtual", 'Presencial'],
+        horarios: ["Martes y Viernes 19:00", "Jueves y Viernes 11:00"]
+    }
+]
 };
 
+
+// Mostrar idiomas ocultos 
 document.addEventListener('DOMContentLoaded', function() {
     const btnVerMas = document.getElementById('btn-ver-mas');
     const hiddenLanguages = document.querySelectorAll('.hidden-language'); // Selecciona TODAS las cards con esa clase
