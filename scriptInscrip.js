@@ -26,7 +26,7 @@ function mostrarInscripciones() {
 
   inscripciones.forEach((inscripcion, index) => {
       const card = document.createElement('div');
-      card.classList.add('card');
+      card.classList.add('card-idioma');
       card.classList.add('mb-3');
       card.style.width = '23rem'; // Para que la card tenga un ancho fijo
       

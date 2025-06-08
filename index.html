@@ -10,7 +10,7 @@
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+<body class="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
     <header>
         <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
           <div class="container-fluid">
@@ -69,7 +69,7 @@
                 </p>
                 <a href="#formulario" id='botonInscripcion'class="btn btn-about-us">INSCRIBITE</a>
               </div>
-              <div class="col-lg-5 about-image-wrapper">
+              <div id='imagenHistoria'class="col-lg-5 about-image-wrapper">
                 <img src="http://placehold.co/500" alt="Tennis player in action inscribete" class="img-fluid about-image-new">
               </div>
             </div><br>
@@ -106,7 +106,7 @@
               <div class="col-md-4 mb-4">
                 <img src="https://www.trecebits.com/wp-content/uploads/2019/02/Persona-1-445x445.jpg.webp" class="rounded-circle mb-3" alt="Profesora italiana" width="160">
                 <h5>Lia Conti</h5>
-                <p>Co-Fundadora & Directora de Experiencia. Comprometido/a con transformar el aprendizaje de idiomas en una aventura inspiradora y accesible, asegurando que cada paso del estudiante sea intuitivo y gratificante.</p>
+                <p>Co-Fundadora & Directora de Experiencia. Comprometida con transformar el aprendizaje de idiomas en una aventura inspiradora y accesible.</p>
               </div>
             </div>
           </div>
@@ -357,15 +357,15 @@
 
         <!-- Testimonios en cards -->
         <section id="testimonios" class="py-5" class="d-none">
+          <h2 class="text-center mb-5">Lo que dicen nuestros estudiantes</h2>
           <div class="container-testimonios">
-            <h2 class="text-center mb-5">Lo que dicen nuestros estudiantes</h2>
             <div class="row">
-              <div id="testimonio-card"class="col-md-6 mb-4">
-                <div class="card shadow-sm">
+              <div id='testimonio-card'class="col-md-6 mb-4">
+                <div class="card-test shadow-sm">
                   <div class="row g-0">
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">Martina González</h5>
+                        <h5 id='titulo'class="card-title">Martina González</h5>
                         <p class="card-text">“Gracias a esta escuela, pude viajar a Alemania y desenvolverme perfectamente.”</p>
                         <p class="card-text"><small class="text-muted">Estudiante de Alemán</small></p>
                       </div>
@@ -375,11 +375,11 @@
               </div>
       
               <div id="testimonio-card" class="col-md-6 mb-4">
-                <div class="card shadow-sm">
+                <div class="card-test shadow-sm">
                   <div class="row g-0">
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">Lucas Pérez</h5>
+                        <h5 id='titulo'class="card-title">Lucas Pérez</h5>
                         <p class="card-text">“La metodología es clara y los profes súper dedicados. ¡Estoy encantado con italiano!”</p>
                         <p class="card-text"><small class="text-muted">Estudiante de Italiano</small></p>
                       </div>
@@ -389,11 +389,11 @@
               </div>
 
               <div id="testimonio-card"class="col-md-6 mb-4">
-                <div class="card shadow-sm">
+                <div class="card-test shadow-sm">
                   <div class="row g-0">
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">Camila Suárez</h5>
+                        <h5 id='titulo'class="card-title">Camila Suárez</h5>
                         <p class="card-text">"Con las clases de francés mejoré muchísimo mi pronunciación. ¡Hasta miro pelis sin subtítulos!"</p>
                         <p class="card-text"><small class="text-muted">Estudiante de Francés</small></p>
                       </div>
@@ -403,11 +403,11 @@
               </div>
 
               <div id="testimonio-card"class="col-md-6 mb-4">
-                <div class="card shadow-sm">
+                <div class="card-test shadow-sm">
                   <div class="row g-0">
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">Sofía Romero</h5>
+                        <h5 id='titulo'class="card-title">Sofía Romero</h5>
                         <p class="card-text">"Nunca pensé que me iba a sentir tan segura hablando en inglés. Las clases son súper prácticas."</p>
                         <p class="card-text"><small class="text-muted">Estudiante de Inglés</small></p>
                       </div>
@@ -420,7 +420,7 @@
         </section>
         
       </main>
-      <footer class="bg-light text-dark mt-5 py-4 shadow-sm">
+      <footer class="bg-light footer text-dark mt-5 py-4 shadow-sm">
         <div class="container">
           <div class="row align-items-center">
             <!-- Contacto (7 columnas) -->
@@ -472,6 +472,5 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 <script src="script.js"></script>
-
 
 </html>

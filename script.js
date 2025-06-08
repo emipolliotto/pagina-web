@@ -1,5 +1,5 @@
 
-// Objeto con la estructura de idiomas, niveles, modalidades y horarios
+// Objeto con idiomas, niveles, modalidades y horarios
 const nivelesPorIdioma = {
   ingles: [
       {
@@ -219,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btnVerMas.style.display = 'none';
     }
 });
+
 
 // Obtener referencias a los elementos del formulario
 const idiomaSelect = document.getElementById('idioma');
