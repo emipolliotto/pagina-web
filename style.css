@@ -365,13 +365,7 @@ header {
 /* ========================================================================== */
 /* SECCIÓN INSCRIPCIONES                           */
 /* ========================================================================== */
-/* Nota: La sección de "Mis Inscripciones" (inscripcion.html) usa .cards-container y .card-idioma
-   Estos estilos ya estaban definidos y son consistentes.
-   Asegúrate de que tus cards en index.html usan .card y las de inscripcion.html usan .card-idioma o un nombre similar
-   para evitar conflictos, o unifica el estilo si son iguales.
-   Si ambas usan 'card', se aplicarán los estilos de '.card' que definí arriba.
-   Aquí se asume que 'mis inscripciones' es un estilo específico.
-*/
+
 .cards-container-inscripciones { /* Nuevo nombre para el contenedor de cards de inscripciones */
   display: flex;
   flex-wrap: wrap;
@@ -448,52 +442,6 @@ header {
   border-color: #bd2130;
 }
 
-/* Testimonios */
-.container-testimonios{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 20px;
-}
-#testimonio-card{
-    max-width: 700px; 
-    padding: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-}
-
-.card-test{
-  display: flex;
-  flex-direction: column;
-  min-height: 200px;
-  text-align: center;
-  justify-content: space-between;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 12px var(--shadow-medium);
-  background-color: white;
-  border: 1px solid var(--card-border);
-  border-radius: 8px;
-}
-
-.card-test .card-body{
-  text-align: center;
-  padding: 20px;
-}
-
-
-.card-test:hover{
-  transform: translateY(-5px);
-}
-
-
 
 /* ========================================================================== */
 /* SECCIÓN SOBRE NOSOTROS                         */
@@ -567,8 +515,18 @@ footer h5 {
 }
 
 footer ul {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
+}
+
+footer ul #primero,#segundo{
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-direction: column;
+  min-width: 45%;
 }
 
 footer ul li {
@@ -681,18 +639,6 @@ footer .ratio {
     width: 100%; /* Una card por fila */
   }
 
-  /* testimonio */
-  #testimonio-card{
-    width: 100%; /*Una card por fila en móviles */
-    max-width: 600px;  
-    padding: 20px;
-    justify-content: space-around;
-  }
-  .container-testimonios{
-    display: flex;
-    justify-content: center;
-  }
-
   /* Footer */
   footer .row {
     flex-direction: column; /* Apilar columnas del footer */
@@ -731,18 +677,6 @@ footer .ratio {
   #card {
     width: calc(50% - 20px); /* Dos cards por fila */
     /* width: 100%; */
-  }
-
-  /* testimonio */
-  #testimonio-card{
-    width: 100%; /*Una card por fila en móviles */
-    max-width: 600px;  
-    padding: 20px;
-    justify-content: space-around;
-  }
-  .container-testimonios{
-    display: flex;
-    justify-content: center;
   }
 
   #formulario .contenido {
